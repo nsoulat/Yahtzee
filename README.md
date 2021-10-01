@@ -6,8 +6,9 @@ Online free yahtzee by two students
 
 ## How to setup the project ?
 ```
-npm install
+npm ci
 ```
+You can also use `npm install` but `npm ci` is more adequate here [according to npm](https://docs.npmjs.com/cli/v7/commands/npm-ci).
 
 ### Compiles and hot-reloads for development
 ```
