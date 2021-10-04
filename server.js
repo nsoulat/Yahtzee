@@ -6,6 +6,8 @@ const app = express()
 const HOSTNAME = '127.0.0.1';
 const PORT = 8080;
 
+const db = require("./models");
+db.sequelize.sync();
 
 
 app.use(function (req, res, next) {
