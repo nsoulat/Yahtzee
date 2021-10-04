@@ -9,6 +9,11 @@ const PORT = 8080;
 const db = require("./models");
 db.sequelize.sync();
 
+// parse requests of content-type - application/json
+app.use(express.json());
+
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
 
 app.use(function (req, res, next) {
     date = new Date(Date.now())
