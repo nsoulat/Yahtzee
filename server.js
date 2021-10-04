@@ -30,6 +30,7 @@ app.get("/", (req, res) => {
     });
 });
 
+require("./routes/player.routes")(app);
 
 app.use(function (req, res) {
     console.log("et c'est le 404 : " + req.url);
