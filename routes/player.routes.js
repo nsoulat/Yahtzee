@@ -3,7 +3,7 @@ module.exports = app => {
 
     var router = require("express").Router();
 
-    // Create a new Tutorial
+    // Créer un nouveau Player
     router.post("/", players.create);
 
     // Récupère tous les Players
