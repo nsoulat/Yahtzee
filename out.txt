@@ -1,0 +1,20 @@
+C:\Users\Moi\Tuto\src
+├── config
+|  ├── config.json
+|  ├── config.model.json
+|  └── db.config.js
+├── controllers
+|  └── player.controller.js
+├── models
+|  ├── index.js
+|  └── player.model.js
+├── node_modules
+├── package-lock.json
+├── package.json
+├── README.md
+├── routes
+|  └── player.routes.js
+└── server.js
+
+directory: 867 file: 17
+
