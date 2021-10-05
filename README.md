@@ -10,7 +10,7 @@ npm ci
 ```
 You can also use `npm install` but `npm ci` is more adequate here [according to npm](https://docs.npmjs.com/cli/v7/commands/npm-ci).
 
-Then in the `config` folder open the file `config.model.json` and replace the values by yours (according to your PostgreSQL database, etc...) and rename the file into `config.json`.
+Then in the `config` folder open the file `config.model.json` and replace the values by yours (according to your PostgreSQL database, your server port, etc...) and rename the file into `config.json`.
 
 ### Compiles and hot-reloads for development
 ```
