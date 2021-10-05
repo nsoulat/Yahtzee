@@ -3,8 +3,9 @@ const express = require("express");
 
 const app = express()
 
-const HOSTNAME = '127.0.0.1';
-const PORT = 8080;
+const serverConfig = require("./config/config.json").SERVER;
+const HOSTNAME = serverConfig.HOST;
+const PORT = serverConfig.PORT;
 
 const db = require("./models");
 db.sequelize.sync();

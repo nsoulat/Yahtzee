@@ -2,11 +2,9 @@ const DBCONFIG = require("./config.json").DATABASE;
 
 
 module.exports = {
-    host: DBCONFIG.HOST,
     user: DBCONFIG.USER,
     password: DBCONFIG.PASSWORD,
     DB: DBCONFIG.DB,
-    port: DBCONFIG.PORT,
     dialect: "postgres",
     pool: {
         max: 5,

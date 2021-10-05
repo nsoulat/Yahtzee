@@ -6,7 +6,6 @@ const sequelize = new Sequelize(
     dbConfig.user,
     dbConfig.password,
     {
-        host: dbConfig.host,
         dialect: dbConfig.dialect,
         operatorsAliases: false, // problem ?
 
