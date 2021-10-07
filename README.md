@@ -21,7 +21,7 @@ Then in the `backend/config` folder open the file `config.model.json` and replac
 
 ### Compiles and hot-reloads for development
 
-For the backend:
+For the backend
 
 ```bash
 npm run start
@@ -41,13 +41,14 @@ npm run build
 This will build the frontend and update the frontend/dist folder which is used by the backend server for static files.
 After the frontend build, you can start the backend server with 
 
-````bash
+```bash
 npm run start
 ```
 
 ### Lints and fixes files
 
 ```bash
+cd frontend
 npm run lint
 ```
 
