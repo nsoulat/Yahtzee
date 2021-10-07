@@ -8,13 +8,6 @@ const sequelize = new Sequelize(
     {
         dialect: dbConfig.dialect,
         operatorsAliases: false, // problem ?
-
-        pool: {
-            max: dbConfig.pool.max,
-            min: dbConfig.pool.min,
-            acquire: dbConfig.pool.acquire,
-            idle: dbConfig.pool.idle
-        }
     });
 
 const db = {};
