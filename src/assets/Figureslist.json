@@ -1,0 +1,102 @@
+[ 	
+	{
+		"id":0,
+		"text":"",
+		"type":"nomJoueur"
+	},
+	{ 
+		"id":1,
+		"text":"As (1 x nombre de 1)",
+		"type":"figure"
+	},
+	{
+		"id":2,
+		"text":"Deux (2 x nombre de 2)",
+		"type":"figure"
+	},
+	{
+		"id":3,
+		"text":"Trois (3 x nombre de 3)",
+		"type":"figure"
+	},
+	{
+		"id":4,
+		"text":"Quatre (4 x nombre de 4)",
+		"type":"figure"
+	},
+	{
+		"id":5,
+		"text":"Cinq (5 x nombre de 5)",
+		"type":"figure"
+	},
+	{
+		"id":6,
+		"text":"Six (6 x nombre de 6)",
+		"type":"figure"
+	},
+	{
+		"id":7,
+		"text":"Bonus (35 points si >62)",
+		"type":"figure"
+	},
+	{
+		"id":8,
+		"text":"Total supérieur",
+		"type":"sousTotal"
+	},
+	{
+		"id":18,
+		"text":"",
+		"type":"espace"
+	},
+	{
+		"id":9,
+		"text":"Brelan (Total 3 dés)",
+		"type":"figure"
+	},
+	{
+		"id":10,
+		"text":"Carré (Total 4 dés)",
+		"type":"figure"
+	},
+	{
+		"id":11,
+		"text":"Full (25 points)",
+		"type":"figure"
+	},
+	{
+		"id":12,
+		"text":"Petite suite (30 points)",
+		"type":"figure"
+	},
+	{
+		"id":13,
+		"text":"Grand suite (40 points)",
+		"type":"figure"
+	},
+	{
+		"id":14,
+		"text":"Yahtzee (50 points)",
+		"type":"figure"
+	},
+	{
+		"id":15,
+		"text":"Chance (Total 5 dés)",
+		"type":"figure"
+	},
+	{
+		"id":16,
+		"text":"Total inférieur",
+		"type":"sousTotal"
+	},
+	{
+		"id":19,
+		"text":"",
+		"type":"espace"
+	},
+	{
+		"id":17,
+		"text":"Total",
+		"type":"total"
+	}
+	]
