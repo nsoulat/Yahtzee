@@ -1,22 +1,22 @@
 <template>
+
   <div class = "tableau">
     <table>
       <tr v-for="figure in figures" :key="figure.id" :class="figure.type">
         <td class="colonneInfo">{{ figure.text }}</td>  
-        <td class="colonneJoueur">{{ valeurJoueur1[figure.id].text }}</td>    <!-- Il faudra changer ça pour creer un json à chaque fois et non pas modifier celui sur le serveur -->
+        <td class="colonneJoueur">{{ valeurJoueur1[figure.id].text }}</td>    
         <td class="colonneJoueur">{{ valeurJoueur2[figure.id].text }}</td> 
       </tr>
-      
     </table>
   </div>
 
 </template>
 
 <script>
-import figuresList from "@/assets/Figureslist.json"
-import infoJoueur1 from "@/assets/Joueur1.json"
-import infoJoueur2 from "@/assets/Joueur2.json"
 
+import figuresList from "@/assets/Figureslist.json"
+import infoJoueur1 from "@/assets/Joueur1.json"   /* Il faudra changer ça pour correspondre à la future architecture */
+import infoJoueur2 from "@/assets/Joueur2.json"
 
 export default {
   data() {
@@ -28,13 +28,11 @@ valeurJoueur2 : infoJoueur2
   }
 }
 
-
 </script>
 
-
 <style>
-table
-{
+
+table {
     text-align: center;
     border-collapse: collapse; 
     border: solid 4px #000;
@@ -42,10 +40,9 @@ table
     float:right;
     margin-right: 1%;
     margin-top: 1%;
-
 }
-table td
-{
+
+table td {
     border: 1px solid black;
 }
 
