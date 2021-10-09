@@ -1,13 +1,19 @@
 <template>
+  <div class = "interfaceJeu">
+    <div class = "tableau">
+      <table>
+        <tr v-for="figure in figures" :key="figure.id" :class="figure.type">
+          <td class="colonneInfo">{{ figure.text }}</td>  
+          <td class="colonneJoueur">{{ valeurJoueur1[figure.id].text }}</td>    
+          <td class="colonneJoueur">{{ valeurJoueur2[figure.id].text }}</td> 
+        </tr>
+      </table>
+    </div>
 
-  <div class = "tableau">
-    <table>
-      <tr v-for="figure in figures" :key="figure.id" :class="figure.type">
-        <td class="colonneInfo">{{ figure.text }}</td>  
-        <td class="colonneJoueur">{{ valeurJoueur1[figure.id].text }}</td>    
-        <td class="colonneJoueur">{{ valeurJoueur2[figure.id].text }}</td> 
-      </tr>
-    </table>
+    <div class = "tapisJeu">
+      <div class="zoneLancer"></div>
+      
+    </div>
   </div>
 
 </template>
@@ -32,14 +38,19 @@ valeurJoueur2 : infoJoueur2
 
 <style>
 
+.interfaceJeu {
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-left: 1%
+
+}
+
 table {
     text-align: center;
     border-collapse: collapse; 
     border: solid 4px #000;
     background-color: rgba(255,255,255,0.45);
     float:right;
-    margin-right: 1%;
-    margin-top: 1%;
 }
 
 table td {
@@ -74,6 +85,24 @@ table td {
 .espace {
   border: 0px;
   height: 20px;
+}
+
+.tapisJeu {
+  width:500px;
+  height:500px;
+  background:rgba(0,85,8);
+  border:rgba(0,54,5);
+  border: solid
+}
+
+.zoneLancer {
+  width:400px;
+  height:400px;
+  background:rgba(21,115,12,0.79);
+  border:rgba(0,54,5);
+  border: solid;
+  margin-left: 50px;
+  margin-top: 50px  
 }
 
 </style>

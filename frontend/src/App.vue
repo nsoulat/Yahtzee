@@ -7,6 +7,7 @@
 <script>
 import tableau from './components/Board.vue'
 
+
 export default {
   name: 'App',
   components: {
