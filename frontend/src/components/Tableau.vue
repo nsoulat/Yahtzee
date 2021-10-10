@@ -38,8 +38,6 @@ table {
     border: solid 4px #000;
     background-color: rgba(255,255,255,0.45);
     float:right;
-    margin-right: 1%;
-    margin-top: 1%;
 }
 
 table td {
