@@ -8,6 +8,25 @@ Online free yahtzee by two students
 
 ## How to setup the project ?
 
+>If you are using Windows, you must change the script-shell that npm is using:
+>As it is explained [here](https://stackoverflow.com/questions/23243353/how-to-set-shell-for-npm-run-scripts-in-windows): if you have a x64 version, run
+>
+>```bash
+>npm config set script-shell "C:\\Program Files\\git\\bin\\bash.exe"
+>```
+>
+>else
+>
+>```bash
+>npm config set script-shell "C:\\Program Files (x86)\\git\\bin\\bash.exe"
+>```
+>
+>It can be reverted with
+>
+>```bash
+>npm config delete script-shell
+>```
+
 Clone the project then run 
 
 ```bash

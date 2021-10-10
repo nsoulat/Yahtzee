@@ -19,6 +19,10 @@ export default {
 </script>
 
 <style>
-
+.jeu {
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-left: 1%
+}
 
 </style>
