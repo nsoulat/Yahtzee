@@ -1,0 +1,6 @@
+frontend: frontend/**/*
+backend: backend/**/*
+config settings: backend/config/config.model.json
+dependencies:
+- '**/package.json'
+- '**/package-lock.json'
