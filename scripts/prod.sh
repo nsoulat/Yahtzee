@@ -9,11 +9,11 @@ git pull
 ./scripts/print_title.sh "Updating dependencies..."
 npm run update
 
-./scripts/print_title.sh "Killing the previous daemon..."
-screen -X -S node quit
-
 ./scripts/print_title.sh "Building the frontend..."
 npm run build
+
+./scripts/print_title.sh "Killing the previous daemon..."
+screen -X -S node quit
 
 ./scripts/print_title.sh "Launching the daemon..."
 cd backend
