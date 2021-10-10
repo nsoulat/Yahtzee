@@ -71,6 +71,34 @@ cd frontend
 npm run lint
 ```
 
+### Release managment
+
+This command line will be effective only for linux servers.
+Make sure that you have the rights to execute the scripts.
+You can set those rights with this command:
+
+```bash
+chmod -R u+x scripts/
+```
+
+To release a new version:
+
+```bash
+npm run prod
+```
+
+This command is equivalent to:
+
+```bash
+git fetch
+git pull
+npm run update
+npm run build
+screen -X -S node quit
+cd backend
+/usr/bin/screen -d -m -S node node server.js
+```
+
 ## Figma model
 
 https://www.figma.com/file/QQ74Ou5yLQ9YuvqtcWaJh8/Yahtzee
