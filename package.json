@@ -4,12 +4,13 @@
   "description": "Jeu de Yahtzee",
   "private": true,
   "scripts": {
-    "start": "cd backend && node server.js",
-    "dev": "cd frontend && npm run serve",
-    "build": "cd frontend && npm run build",
-    "install" : "cd backend && npm install && cd ../frontend && npm install",
-    "update": "cd backend && npm ci && cd ../frontend && npm ci",
-    "fix": "cd backend && npm audit fix && cd ../frontend && npm audit fix"
+    "start": "./scripts/start.sh",
+    "dev": "./scripts/dev.sh",
+    "build": "./scripts/build.sh",
+    "install" : "./scripts/install.sh",
+    "update": "./scripts/update.sh",
+    "fix": "./scripts/fix.sh",
+    "prod": "./scripts/prod.sh"
   },
   "repository": {
     "type": "git",
