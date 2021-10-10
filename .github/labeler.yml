@@ -2,4 +2,5 @@ frontend: frontend/**/*
 backend: backend/**/*
 config settings: backend/config/config.model.json
 dependencies:
-- any: ['**/package.json', '**/package-lock.json']
+- '**/package.json'
+- '**/package-lock.json'
