@@ -10,6 +10,7 @@ import tableau from "../components/Tableau.vue"
 export default {
     name: 'Jeu',
   components: {
+    tableau
   }
 }
 </script>
