@@ -1,10 +1,8 @@
 <template>
   <div class="home">
     <h1>Yahtzee</h1>
-    <router-link :to="{ name : 'Jeu' }">
-      <div class = "rectangle">
-        2 joueurs
-      </div>
+    <router-link class="rectangle" :to="{ name : 'Jeu' }">
+            2 joueurs
     </router-link>
   <div id = "espacement"></div>
     <router-link :to="{ name : 'Regles' }">
