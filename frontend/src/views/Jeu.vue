@@ -51,6 +51,8 @@ export default {
 	border-radius: 50%; 
 	text-align: center;
 	font-weight: bold;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 </style>
