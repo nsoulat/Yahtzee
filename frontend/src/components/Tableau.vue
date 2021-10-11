@@ -1,15 +1,13 @@
 <template>
-
-  <div class = "tableau">
-    <table>
-      <tr v-for="figure in figures" :key="figure.id" :class="figure.type">
-        <td class="colonneInfo">{{ figure.text }}</td>  
-        <td class="colonneJoueur">{{ valeurJoueur1[figure.id].text }}</td>    
-        <td class="colonneJoueur">{{ valeurJoueur2[figure.id].text }}</td> 
-      </tr>
-    </table>
+    <div class = "tableau">
+      <table>
+        <tr v-for="figure in figures" :key="figure.id" :class="figure.type">
+          <td class="colonneInfo">{{ figure.text }}</td>  
+          <td class="colonneJoueur">{{ valeurJoueur1[figure.id].text }}</td>    
+          <td class="colonneJoueur">{{ valeurJoueur2[figure.id].text }}</td> 
+        </tr>
+      </table>
   </div>
-
 </template>
 
 <script>
