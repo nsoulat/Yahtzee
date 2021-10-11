@@ -5,10 +5,8 @@
             2 joueurs
     </router-link>
   <div id = "espacement"></div>
-    <router-link :to="{ name : 'Regles' }">
-      <div class = "rectangle">
-        Règles
-      </div>
+    <router-link class="rectangle" :to="{ name : 'Regles' }">
+       Règles
     </router-link>
   </div>
 </template>
