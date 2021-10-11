@@ -1,10 +1,8 @@
 <template>
     <div id="Regles">
         <reglesEcrites/>
-        <router-link :to="{ name : 'Home' }">
-            <div class = "rectangle">
+        <router-link class = "rectangle" :to="{ name : 'Home' }" >
                 Retour au menu
-            </div>
         </router-link>
     </div>
 </template>
