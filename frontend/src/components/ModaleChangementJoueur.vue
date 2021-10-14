@@ -1,32 +1,26 @@
 <template>
   <transition name="modal-fade">
-    <div class="bloc-modale" v-if="revele">
-      <div class="overlay" v-on:click="toggleModale"></div>
-
-      <div class="modale">
-        <div v-on:click="toggleModale" class="btn-modale">X</div>
-        <reglesEcrites/>
+    <div class="bloc-modaleChangement" v-if="afficheChangement">
+      <div class="overlay" v-on:click="toggleModaleChangement"></div>
+      <div class="modaleChangement">
+        <div class="rectangle">
+          Au tour de Joueur1
+        </div>
       </div>
     </div>
   </transition>
 </template>
 
-
 <script>
-import reglesEcrites from "../components/ReglesEcrites.vue"
 export default {
-components: {
-    reglesEcrites
-  },
-  name: "ModaleRegles",
-  props: ["revele", "toggleModale"],
-  
-};
+    name:"ModaleChangement",
+    props: ["afficheChangement", "toggleModaleChangement"],  
+}
 </script>
 
-
 <style scoped>
-.bloc-modale {
+
+.bloc-modaleChangement {
   top: 0;
   bottom: 0;
   left: 0;
@@ -42,11 +36,10 @@ components: {
   right: 0;
 }
 
-.modale {
-  background: #f2ceb1;
+.modaleChangement {
   color: #333;
   position: fixed;
-  top : 10%;
+  top : 35%;
   left: 2%;
   right: 2%;
   max-height: 600px;

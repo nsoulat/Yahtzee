@@ -8,13 +8,12 @@
     <router-link class="rectangle" :to="{ name : 'Regles' }">
        Règles
     </router-link>
+
   </div>
 </template>
 
 <script>
-export default {
 
-}
 </script>
 
 <style>
@@ -28,8 +27,8 @@ h1 {
 }
 
 .rectangle {
-  width: 383px;
-  height: 164px;
+  width: 230px;
+  height: 110px;
   background-color: white;
   border: solid;
   border-color:black;
@@ -43,7 +42,7 @@ h1 {
 }
 
 a {
-  font-size: 50px;
+  font-size: 30px;
   color: #000000;
   text-decoration: none;
 }
