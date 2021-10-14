@@ -1,12 +1,14 @@
 <template>
-  <div class="bloc-modale" v-if="revele">
-    <div class="overlay" v-on:click="toggleModale"></div>
+  <transition name="modal-fade">
+    <div class="bloc-modale" v-if="revele">
+      <div class="overlay" v-on:click="toggleModale"></div>
 
-    <div class="modale">
-      <div v-on:click="toggleModale" class="btn-modale">X</div>
-      <reglesEcrites/>
+      <div class="modale">
+        <div v-on:click="toggleModale" class="btn-modale">X</div>
+        <reglesEcrites/>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 
@@ -41,7 +43,7 @@ components: {
 }
 
 .modale {
-  background: #bebebe;
+  background: #f2ceb1;
   color: #333;
   position: fixed;
   top : 10%;
@@ -55,5 +57,18 @@ components: {
   position: absolute;
   top: 10px;
   right: 10px;
+  text-decoration: none;
+	cursor: pointer;
 }
+
+.modal-fade-enter,
+  .modal-fade-leave-to {
+    opacity: 0;
+  }
+
+  .modal-fade-enter-active,
+  .modal-fade-leave-active {
+    transition: opacity .5s ease;
+  }
+
 </style>

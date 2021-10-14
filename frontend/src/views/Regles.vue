@@ -2,7 +2,7 @@
     <div id="Regles">
         <reglesEcrites/>
         <router-link class = "rectangle" :to="{ name : 'Home' }" >
-                Retour au menu
+                Menu
         </router-link>
     </div>
 </template>

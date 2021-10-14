@@ -15,7 +15,7 @@ export default {
 <style>
 
 .ExterieurRectangle {
-    width:500px;
+    width:700px;
 	height:500px;
 	background:rgb(0, 83, 44);
     border: solid;
@@ -25,7 +25,7 @@ export default {
 }
 
 .InterieurRectangle {
-    width:400px;
+    width:600px;
 	height:400px;
 	background:rgb(0, 168, 90);
     margin-left: 50px;
