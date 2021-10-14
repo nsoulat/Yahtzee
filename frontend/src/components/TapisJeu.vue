@@ -12,12 +12,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 .ExterieurRectangle {
     width:700px;
-	height:500px;
-	background:rgb(0, 83, 44);
+    height:500px;
+    background:rgb(0, 83, 44);
     border: solid;
     border-color: rgb(0, 31, 10);
     border-radius: 4px;
@@ -26,8 +26,8 @@ export default {
 
 .InterieurRectangle {
     width:600px;
-	height:400px;
-	background:rgb(0, 168, 90);
+    height:400px;
+    background:rgb(0, 168, 90);
     margin-left: 50px;
     margin-top: 50px;
     border: solid;

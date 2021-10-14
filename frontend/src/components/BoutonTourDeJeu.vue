@@ -12,6 +12,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+.rectangle {
+    height: 64px;
+}
 
 </style>

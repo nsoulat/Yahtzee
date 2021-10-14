@@ -28,7 +28,7 @@ valeurJoueur2 : infoJoueur2
 
 </script>
 
-<style>
+<style scoped>
 
 table {
     text-align: center;
