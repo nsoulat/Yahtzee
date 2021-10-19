@@ -30,46 +30,51 @@ valeurJoueur2 : infoJoueur2
 
 <style scoped>
 
-table {
-    text-align: center;
-    border-collapse: collapse; 
-    border: solid 4px #000;
-    background-color: rgba(255,255,255,0.45);
-    float:right;
-}
+    table {
+        text-align: center;
+        border-collapse: collapse;
+        border: solid 4px #000;
+        background-color: rgba(255,255,255,0.45);
+        float: right;
+    }
 
-table td {
-    border: 1px solid black;
-}
+    table td {
+        border: 1px solid black;
+    }
 
-.nomJoueur {
-  height:33px;
-}
+    .nomJoueur {
+        height: 33px;
+    }
 
-.figure {
-  width:230px;
-  height:33px;
-  vertical-align: middle;
-}
+    .figure {
+        width: 230px;
+        height: 33px;
+        vertical-align: middle;
+    }
 
-.colonneJoueur {
-  width: 250px;
-  vertical-align: middle;
-}
+    .colonneJoueur {
+        width: 250px;
+        vertical-align: middle;
+    }
 
-.sousTotal {
-  height:33px;
-  background-color: rgba(40,40,40,0.4);
-}
+    .colonneInfo {
+        width: 250px;
+        vertical-align: middle;
+    }
 
-.total {
-  height:33px;
-  background-color: rgba(40,40,40,0.6);
-}
 
-.espace {
-  border: 0px;
-  height: 20px;
-}
+    .sousTotal {
+        height: 33px;
+        background-color: rgba(40,40,40,0.4);
+    }
 
+    .total {
+        height: 33px;
+        background-color: rgba(40,40,40,0.6);
+    }
+
+    .espace {
+        border: 0px;
+        height: 20px;
+    }
 </style>
