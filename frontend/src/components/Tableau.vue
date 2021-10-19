@@ -1,30 +1,31 @@
 <template>
-    <div class = "tableau">
-      <table>
-        <tr v-for="figure in figures" :key="figure.id" :class="figure.type">
-          <td class="colonneInfo">{{ figure.text }}</td>  
-          <td class="colonneJoueur">{{ valeurJoueur1[figure.id].text }}</td>    
-          <td class="colonneJoueur">{{ valeurJoueur2[figure.id].text }}</td> 
-        </tr>
-      </table>
-  </div>
+    <div class="tableau">
+        <table>
+            <tr v-for="figure in game.Figures" :key="figure.Id" :class="figure.Type">
+                <td :class='colonneInfo'> {{ figure.Text }} </td>
+                <td v-for="(point, playerId) in figure.Point" :key="playerId" :class="[figure.isClickable(playerId, 0) ? 'clickable' : '', 'colonneJoueur']">
+                    {{ figure.hasValue() ? point.value : "" }}
+                    {{ figure.hasValue() ? 1 : 0 }}
+                    {{ figure.isClickable(playerId, 0) ? 1 : 0 }}
+                    {{ figure.Calcul }}
+                    {{ figure.isValueFixed(playerId) ? 1 : 0 }}
+
+                </td>
+            </tr>
+        </table>
+    </div>
 </template>
 
 <script>
+    import Game from "../classes/Game";
 
-import figuresList from "@/assets/Figureslist.json"
-import infoJoueur1 from "@/assets/Joueur1.json"   /* Il faudra changer ça pour correspondre à la future architecture */
-import infoJoueur2 from "@/assets/Joueur2.json"
-
-export default {
-  data() {
-    return {
-figures : figuresList,
-valeurJoueur1 : infoJoueur1,
-valeurJoueur2 : infoJoueur2
+    export default {
+        data() {
+            return {
+                game: new Game(2, ["Michel", "Marc"])
+            };
+        }
     }
-  }
-}
 
 </script>
 
@@ -62,6 +63,9 @@ valeurJoueur2 : infoJoueur2
         vertical-align: middle;
     }
 
+    .clickable {
+        background-color: rgb(40,40,40,0.1);
+    }
 
     .sousTotal {
         height: 33px;
