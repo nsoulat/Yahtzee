@@ -7,10 +7,6 @@ export default class Game {
     constructor(nbJoueur, nameArray) {
         this.IsProgress = true;
         this.Winner = null;
-        //this.Joueurs = new Array(nbJoueur).fill()
-        //    .map((j, index) => {
-        //        new Joueur(index, nameArray[index])
-        //    });
         this.Joueurs = [];
         for (let i = 0; i < nbJoueur; i++) {
             this.addPlayer(i, nameArray[i]);
