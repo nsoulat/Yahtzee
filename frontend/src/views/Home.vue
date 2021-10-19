@@ -1,19 +1,37 @@
 <template>
   <div class="home">
     <h1>Yahtzee</h1>
-    <router-link class="rectangle" :to="{ name : 'Jeu' }">
-            2 joueurs
-    </router-link>
+    <modale :afficheNomJoueurs="afficheNomJoueurs" :toggleModaleNomJoueurs="toggleModaleNomJoueurs"></modale>
+    <div v-on:click="toggleModaleNomJoueurs" class="rectangle" id="bouton2Joueurs">
+      2 Joueurs
+    </div>
+
   <div id = "espacement"></div>
-    <router-link class="rectangle" :to="{ name : 'Regles' }">
-       Règles
-    </router-link>
+  <router-link class="rectangle" :to="{ name : 'Regles' }">
+      Règles
+  </router-link>
 
   </div>
 </template>
 
 <script>
+import modaleNomJoueurs from "../components/ModaleNomJoueurs.vue"
 
+export default {
+  components: {
+    modale: modaleNomJoueurs
+  },
+  data() {
+    return {
+      afficheNomJoueurs: false
+    };
+  },
+  methods: {
+  toggleModaleNomJoueurs: function() {
+    this.afficheNomJoueurs = !this.afficheNomJoueurs;
+  }
+}
+}
 </script>
 
 <style>
@@ -53,6 +71,11 @@ a.router-link-exact-active {
 
 #espacement {
   height: 20px
+}
+
+#bouton2Joueurs {
+    font-size: 30px;
+    cursor: pointer;
 }
 
 </style>
