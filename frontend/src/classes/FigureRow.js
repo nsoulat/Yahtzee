@@ -18,7 +18,6 @@ export default class FigureRow {
 				? true : false;
 			this.addPoint(playerId, value, isFixed);
 		});
-		//console.log(this.Point);
 	}
 
 	addPoint(playerId, value, isFixed) {

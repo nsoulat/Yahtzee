@@ -12,7 +12,6 @@ export default class Game {
             this.addPlayer(i, nameArray[i]);
         }
         this.Figures = [];
-        //console.log(this.Joueurs);
         figurelist.forEach(item => {
             var figure = new FigureRow(
                 item.id,
@@ -26,8 +25,6 @@ export default class Game {
             this.Figures.push(figure);
         });
 
-        //console.log(this.Figures);
-
         this.CurrentTurn = this.Joueurs[0]; // initial player
         this.TurnCounter = 0;
         console.log("Création d'un nouveau Jeu");
@@ -35,7 +32,6 @@ export default class Game {
 
     addPlayer(id, name) {
         this.Joueurs.push(new Joueur(id, name));
-        //console.log("Joueur ajouté");
     }
 
 }
