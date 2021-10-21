@@ -2,11 +2,12 @@ import Calcul from "./Calcul";
 
 export default class FigureRow {
 
-	constructor(id, text, type, defaultValue, calcul, zone, joueurs) {
+	constructor(id, text, type, defaultValue, calcul, detailledCalcul, zone, joueurs) {
 		this.Id = id;
 		this.Text = text;
 		this.Type = type;
 		this.Calcul = calcul;
+		this.DetailledCalcul = detailledCalcul;
 		this.Zone = zone;
 		this.Point = {};
 		joueurs.forEach(joueur => {
@@ -17,7 +18,7 @@ export default class FigureRow {
 				? true : false;
 			this.addPoint(playerId, value, isFixed);
 		});
-		console.log(this.Point);
+		//console.log(this.Point);
 	}
 
 	addPoint(playerId, value, isFixed) {
