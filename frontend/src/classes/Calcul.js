@@ -1,12 +1,13 @@
 export default class Calcul {
 
-    // des is { 0: value, 1: value, ..., 4: value }
-    compute(des, calculType, detailledCalcul) {
+    // sera appelé par chacune des figures qui sont "clickables" 
+    // des = { 0: value, 1: value, ..., 4: value }
+    compute(des, calculType, detailledCalcul, defaultValue) {
         let count = 0;
         switch (calculType) {
             case Calcul.SumOf: {
                 let digit = parseInt(detailledCalcul, 10);
-                for (var i = 0; i < 5; i++) {
+                for (let i = 0; i < 5; i++) {
                     if (des[i] === digit) {
                         count += digit;
                     }
@@ -15,8 +16,18 @@ export default class Calcul {
             }
             case Calcul.Sum:
                 if (this.hasIf(detailledCalcul)) {
-                    //detailledCalcul = detailledCalcul.substring(3);
-
+                    if (this.computeIf(detailledCalcul.substring(3))) {
+                        for (let i = 0; i < 5; i++) {
+                            count += des[i];
+                        }
+                    }
+                }
+                break;
+            case Calcul.Fixed:
+                if (this.hasIf(detailledCalcul)) {
+                    if (this.computeIf(detailledCalcul.substring(3))) {
+                        count = defaultValue;
+                    }
                 }
                 break;
             default:
@@ -29,8 +40,25 @@ export default class Calcul {
         return detailledCalcul.substring(0, 2) === "if";
     }
 
-    computeIf(detailledCalcul) {
-        return detailledCalcul;
+    computeIf(detailledCalculWithoutIf, des) {
+        let actions = detailledCalculWithoutIf.split(" ");
+        switch (actions[0]) {
+            case 'brelan':
+                return this.isBrelan(des);
+            case 'carre':
+                return this.isCarre(des);
+            case 'yahtzee':
+                return this.isYahtzee(des);
+            case 'grandeSuite':
+                return this.isGrandeSuite(des);
+            case 'petiteSuite':
+                return this.isPetiteSuite(des);
+            case 'full':
+                return this.isFull(des);
+            default:
+                console.log(`if non géré ${actions}`);
+        }
+        return false;
     }
 
     isBrelan(des) { return this.hasSameNumbers(des, 3); }
