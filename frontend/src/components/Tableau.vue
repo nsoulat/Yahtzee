@@ -4,12 +4,16 @@
             <tr v-for="figure in game.Figures" :key="figure.Id" :class="figure.Type">
                 <td :class='colonneInfo'> {{ figure.Text }} </td>
                 <td v-for="(point, playerId) in figure.Point" :key="playerId" :class="[figure.isClickable(playerId, 0) ? 'clickable' : '', 'colonneJoueur']">
-                    {{ figure.hasValue() ? point.value : "" }}
-                    {{ figure.hasValue() ? 1 : 0 }}
-                    {{ figure.isClickable(playerId, 0) ? 1 : 0 }}
-                    {{ figure.Calcul }}
-                    {{ figure.isValueFixed(playerId) ? 1 : 0 }}
-
+                    <span v-if="figure.Id === 0">
+                        {{ game.Joueurs[playerId].Name }}
+                    </span>
+                    <span v-else>
+                        {{ figure.hasValue() ? point.value : "" }}
+                        {{ figure.hasValue() ? 1 : 0 }}
+                        {{ figure.isClickable(playerId, 0) ? 1 : 0 }}
+                        {{ figure.Calcul }}
+                        {{ figure.isValueFixed(playerId) ? 1 : 0 }}
+                    </span>
                 </td>
             </tr>
         </table>
