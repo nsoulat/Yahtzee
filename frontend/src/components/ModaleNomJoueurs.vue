@@ -2,7 +2,6 @@
     <transition name="modal-fade">
         <div class="bloc-modaleNomJoueurs" v-if="afficheNomJoueurs">
 
-        <router-link class="rectangle" :to="{ name : 'Jeu' }">
             <div class="overlay" v-on:click="toggleModaleNomJoueurs"></div>
             <div class="modaleNomJoueurs">
                 <p>Quel sont les noms des Joueurs ?</p>
@@ -13,6 +12,7 @@
                     <input v-model="nomJoueur2" placeholder="Paul" id="Joueur2">
                 </form>
                 <div class="espace"></div>
+                <router-link class="rectangle" :to="{ name : 'Jeu', query: { name1: nomJoueur1, name2: nomJoueur2 } }">
                     Jouer
                 </router-link>
 
@@ -22,10 +22,15 @@
 </template>
 
 <script>
-    props: ["afficheNomJoueurs", "toggleModaleNomJoueurs"],
     export default {
         name: "ModaleNomJoueurs",
         props: ["afficheNomJoueurs", "toggleModaleNomJoueurs"],
+        data() {
+            return {
+                nomJoueur1: "",
+                nomJoueur2: ""
+            }
+        }
     }
 </script>
 

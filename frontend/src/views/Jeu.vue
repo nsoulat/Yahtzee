@@ -29,10 +29,16 @@
             boutonTourDeJeu
         },
         data() {
+            let name1 = this.$route.query.name1 ?? ""; // if we call /jeu alone
+            let name2 = this.$route.query.name2 ?? "";
+
+            let nameArray = [
+                name1 === "" ? "Player1" : name1, // if an empty string has been given
+                name2 === "" ? "Player2" : name2,
+            ];
             return {
                 revele: false,
-                // Jeu doit récupérer les names entrés dans Home et les passer ici en array
-                game: new Game(2, ["Ed", "Pierre"]) 
+                game: new Game(2, nameArray)
             };
         },
         methods: {
