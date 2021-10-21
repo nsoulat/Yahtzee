@@ -44,6 +44,8 @@ export default {
   right: 2%;
   max-height: 600px;
   overflow-y: auto;
+  border:2px solid black;
+  box-shadow: 10px 5px 5px rgba(0,0,0,0.2);
 }
 
 .btn-modale {
