@@ -31,7 +31,8 @@
         data() {
             return {
                 revele: false,
-                game: new Game(2, ["Ed", "Pierre"])
+                // Jeu doit récupérer les names entrés dans Home et les passer ici en array
+                game: new Game(2, ["Ed", "Pierre"]) 
             };
         },
         methods: {
