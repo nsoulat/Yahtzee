@@ -68,6 +68,7 @@
 
     .clickable {
         background-color: rgb(40,40,40,0.1);
+        color: rgb(72,0,255);
     }
 
     .sousTotal {
