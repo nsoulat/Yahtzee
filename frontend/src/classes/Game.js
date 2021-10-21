@@ -12,7 +12,7 @@ export default class Game {
             this.addPlayer(i, nameArray[i]);
         }
         this.Figures = [];
-        console.log(this.Joueurs);
+        //console.log(this.Joueurs);
         figurelist.forEach(item => {
             var figure = new FigureRow(
                 item.id,
@@ -20,20 +20,22 @@ export default class Game {
                 item.type,
                 item.defaultValue,
                 item.calcul,
+                item.detailledCalcul,
                 item.zone,
                 this.Joueurs);
             this.Figures.push(figure);
         });
 
-        console.log(this.Figures);
+        //console.log(this.Figures);
 
         this.CurrentTurn = this.Joueurs[0]; // initial player
         this.TurnCounter = 0;
+        console.log("Création d'un nouveau Jeu");
     }
 
     addPlayer(id, name) {
         this.Joueurs.push(new Joueur(id, name));
-        console.log("Joueur ajouté");
+        //console.log("Joueur ajouté");
     }
 
 }

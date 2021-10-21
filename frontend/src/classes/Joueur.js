@@ -6,7 +6,6 @@ export default class Joueur {
     constructor(id, name) {
         this.Id = id;
         this.Name = name;
-        console.log(`id: ${this.Id}, name:${this.Name}, created`);
-
+        // console.log(`id: ${this.Id}, name:${this.Name}, created`);
     }
 }
