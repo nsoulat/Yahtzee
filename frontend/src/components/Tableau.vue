@@ -17,12 +17,11 @@
 </template>
 
 <script>
-    import Game from "../classes/Game";
-
     export default {
+        props: ["game"],
         data() {
             return {
-                game: new Game(2, ["Michel", "Marc"])
+
             };
         }
     }

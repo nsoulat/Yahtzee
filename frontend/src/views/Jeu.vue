@@ -1,6 +1,6 @@
 <template>
     <div class="Jeu">
-        <tableau />
+        <tableau :game="game"/>
         <tapisJeu />
         <div class="gauche"><stockageDes /></div>
         <div class="droite"><boutonTourDeJeu /></div>
@@ -17,6 +17,7 @@
     import stockageDes from "../components/StockageDes.vue"
     import boutonTourDeJeu from "../components/BoutonTourDeJeu.vue"
     import Modale from "../components/ModaleRegles.vue"
+    import Game from "../classes/Game";
 
     export default {
         name: 'Jeu',
@@ -29,7 +30,8 @@
         },
         data() {
             return {
-                revele: false
+                revele: false,
+                game: new Game(2, ["Ed", "Pierre"])
             };
         },
         methods: {
