@@ -1,5 +1,6 @@
 const path = require('path')
 const express = require("express");
+var history = require('connect-history-api-fallback');
 
 const app = express()
 
@@ -23,10 +24,24 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // bind static front
-app.use(express.static('../frontend/dist'))
+const staticFileMiddleware = express.static('../frontend/dist')
+
+app.use(staticFileMiddleware)
+app.use(history({
+    rewrites: [
+        {
+            from: /^\/api\/.*$/,
+            to: function (context) {
+                return context.parsedUrl.path // if the url matches "/api/" (https://regexr.com/) it is not for Vue
+            }
+        }
+    ]
+}))
+app.use(staticFileMiddleware)
+// ^ `app.use(staticFileMiddleware)` is included twice as per https://github.com/bripkens/connect-history-api-fallback/blob/master/examples/static-files-and-index-rewrite/README.md#configuring-the-middleware
 
 // simple route
-app.get("/hello", (req, res) => {
+app.get("/api/hello", (req, res) => {
     res.statusCode = 200;
     res.json({
         status: 200,

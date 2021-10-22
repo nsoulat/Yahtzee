@@ -5,6 +5,7 @@
   "private": true,
   "main": "server.js",
   "dependencies": {
+    "connect-history-api-fallback": "^1.6.0",
     "core-js": "^3.6.5",
     "express": "^4.17.1",
     "pg": "^8.7.1",
