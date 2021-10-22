@@ -11,10 +11,15 @@ export default class Game {
         for (let i = 0; i < nbJoueur; i++) {
             this.addPlayer(i, nameArray[i]);
         }
+
+        this.Totals = {}; // the key is the zone
         this.Figures = [];
+        let id = 0;
+        this.Zones = [];
+
         figurelist.forEach(item => {
             var figure = new FigureRow(
-                item.id,
+                id++,
                 item.text,
                 item.type,
                 item.defaultValue,
@@ -23,7 +28,17 @@ export default class Game {
                 item.zone,
                 this.Joueurs);
             this.Figures.push(figure);
+            if (item.type === FigureRow.SousTotal || item.type === FigureRow.Totals) {
+                this.Totals[parseInt(item.zone, 10)] = figure;
+            }
+            if (!this.Zones.includes(item.zone) && item.zone > -1) {
+                this.Zones.push(item.zone);
+            }
         });
+
+        this.Zones.sort(function (a, b) {
+            return a - b;
+        }); // sort integer array
 
         this.CurrentPlayer = this.Joueurs[0]; // initial player
         this.TurnCounter = 0;
@@ -41,7 +56,7 @@ export default class Game {
     endTurn() {
         this.updateTotal();
         this.CurrentPlayer = this.CurrentPlayer[++this.TurnCounter]
-        if (isTheEnd()) {
+        if (this.isTheEnd()) {
             this.IsProgress = false;
         }
     }
