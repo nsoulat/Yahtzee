@@ -37,6 +37,13 @@ export default class FigureRow {
 			.includes(this.Type);
 	}
 
+	getValue(playerId) {
+		if (this.isValueFixed(playerId)) {
+			return this.Point[playerId].value;
+		}
+		return 0;
+    }
+
 	isClickable(playerId, currentPlayerId) {
 		return (playerId == currentPlayerId
 			&& !this.isValueFixed(playerId)
