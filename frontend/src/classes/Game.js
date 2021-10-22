@@ -49,8 +49,12 @@ export default class Game {
         this.Joueurs.push(new Joueur(id, name));
     }
 
-    updateTotal() {
-        // TODO
+    updateTotal(playerId) {
+        // in the figureList.json, the zone must be well order
+        this.Zones.forEach(zone => {
+            let count = this.getTotalForZone(zone);
+            this.Totals[zone].setValue(playerId, count);
+        });
     }
 
     endTurn() {
@@ -84,6 +88,16 @@ export default class Game {
             }
         });
         return winners;
+    }
+
+    getTotalForZone(playerId, zone) {
+        let count = 0;
+        this.Figures.forEach(figure => {
+            if (figure.Zone === zone) {
+                count += figure.getValue(playerId);
+            }
+        });
+        return count;
     }
 
 }
