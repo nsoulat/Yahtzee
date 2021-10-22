@@ -12,8 +12,8 @@
             Si vous totalisez plus de 62 points pour la partie supérieure, vous obtenez un bonus de 35 points.<br/>
             La partie inférieure comporte différentes figures :
             <ul>
-            <li>Brelan : Trois dés indiquant le même chiffre. Il vaut la somme de ces 3 chiffres.</li>
-            <li>Carré : Quatre dés indiquant le même chiffre. Il vaut la somme de ces 4 chiffres.</li>
+            <li>Brelan : Trois dés indiquant le même chiffre. Il vaut la somme des cinq dés.</li>
+            <li>Carré : Quatre dés indiquant le même chiffre. Il vaut la somme des cinq dés.</li>
             <li>Full : Trois dés indiquant le même chiffre et deux dés identiques mais différents des deux autres. Il vaut 25 points.</li>
             <li>Petite suite : Une suite de quatre chiffres. Elle vaut 30 points.</li>
             <li>Grande suite : Une suite de cinq chiffres. Elle vaut 40 points.</li>
