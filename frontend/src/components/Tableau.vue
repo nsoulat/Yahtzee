@@ -9,10 +9,7 @@
                     </span>
                     <span v-else>
                         {{ figure.hasValue() ? point.value : "" }}
-                        {{ figure.hasValue() ? 1 : 0 }}
-                        {{ figure.isClickable(playerId, 0) ? 1 : 0 }}
-                        {{ figure.Calcul }}
-                        {{ figure.isValueFixed(playerId) ? 1 : 0 }}
+                        {{ figure.isClickable(playerId, 0) ? "CLICK" : 0 }}
                     </span>
                 </td>
             </tr>
