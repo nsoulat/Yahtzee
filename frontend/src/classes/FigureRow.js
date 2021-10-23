@@ -47,7 +47,7 @@ export default class FigureRow {
 		return this.Point[playerId].isFixed;
 	}
 
-	hasPlay(playerId, value) {
+	hasPlayed(playerId, value) {
 		if (this.isValueFixed(playerId)) {
 			console.log(`La valeur est déjà fixée: ${this.Point[playerId].value} (${value})`);
 		}
@@ -60,7 +60,7 @@ export default class FigureRow {
 	setValue(playerId, value) {
 		switch (this.Type) {
 			case FigureRow.Figure:
-				this.hasPlay(playerId, value);
+				this.hasPlayed(playerId, value);
 				break;
 			case FigureRow.SousTotal:
 			case FigureRow.Total:
