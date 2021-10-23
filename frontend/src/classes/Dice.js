@@ -9,7 +9,18 @@ export default class Dice {
         this.Etat = this.Etat == "Bloque" ? "Libre" : "Bloque";
     }
 
+	setRandomDiceData() {
+		this.Value = Math.floor(Math.random() * 6) + 1;
+	}
+
     rollDice() {
-        this.Value = Math.floor(Math.random() * 6) + 1;
+		let count = 0;
+		const timer = setInterval(() => {
+		this.setRandomDiceData();
+		if (count >= 6) {
+			clearInterval(timer);
+		}
+		count += 1;
+		}, 80);
     }
 }
