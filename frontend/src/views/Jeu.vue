@@ -1,9 +1,9 @@
 <template>
     <div class="Jeu">
         <tableau :game="game"/>
-        <tapisJeu />
-        <div class="gauche"><stockageDes /></div>
-        <div class="droite"><boutonTourDeJeu /></div>
+        <tapisJeu :diceArray="dice" />
+        <div class="gauche"><stockageDes :diceArray="dice" /></div>
+        <div class="droite"><boutonTourDeJeu :diceArray="dice" /></div>
 
         <modale :revele="revele" :toggleModale="toggleModale"></modale>
         <div v-on:click="toggleModale" class="boutonRegles">?</div>
@@ -38,12 +38,12 @@
                 name2 === "" ? "Player2" : name2,
             ];
 
-            let diceArray = new Array(5).fill().map(dice => new Dice());
+            let diceArray = new Array(5).fill().map(() => new Dice());
 
             return {
                 revele: false,
                 game: new Game(2, nameArray),
-                diceArray
+                dice: diceArray
             };
         },
         methods: {
