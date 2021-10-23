@@ -1,80 +1,87 @@
 <template>
-<div class="Jeu">
-	<tableau/>
-	<tapisJeu/>
-  <div class="gauche"><stockageDes/></div>
-  <div class="droite"><boutonTourDeJeu/></div>
-  
+    <div class="Jeu">
+        <tableau :game="game"/>
+        <tapisJeu />
+        <div class="gauche"><stockageDes /></div>
+        <div class="droite"><boutonTourDeJeu /></div>
 
-	<modale :revele="revele" :toggleModale="toggleModale"></modale>
-	<div v-on:click="toggleModale" class="boutonRegles">?</div>
+        <modale :revele="revele" :toggleModale="toggleModale"></modale>
+        <div v-on:click="toggleModale" class="boutonRegles">?</div>
 
-</div>
+    </div>
 </template>
 
 <script>
-import tableau from "../components/Tableau.vue"
-import tapisJeu from "../components/TapisJeu.vue"
-import stockageDes from "../components/StockageDes.vue"
-import boutonTourDeJeu from "../components/BoutonTourDeJeu.vue"
-import Modale from "../components/ModaleRegles.vue";
+    import tableau from "../components/Tableau.vue"
+    import tapisJeu from "../components/TapisJeu.vue"
+    import stockageDes from "../components/StockageDes.vue"
+    import boutonTourDeJeu from "../components/BoutonTourDeJeu.vue"
+    import Modale from "../components/ModaleRegles.vue"
+    import Game from "../classes/Game";
 
-export default {
-    name: 'Jeu',
-  components: {
-    tableau,
-    tapisJeu,
-    modale: Modale,
-    stockageDes,
-    boutonTourDeJeu
-  },
-  data() {
-    return {
-      revele: false
-    };
-  },
-  methods: {
-    toggleModale: function() {
-      this.revele = !this.revele;
+    export default {
+        name: 'Jeu',
+        components: {
+            tableau,
+            tapisJeu,
+            modale: Modale,
+            stockageDes,
+            boutonTourDeJeu
+        },
+        data() {
+            let name1 = this.$route.query.name1 ?? ""; // if we call /jeu alone
+            let name2 = this.$route.query.name2 ?? "";
+
+            let nameArray = [
+                name1 === "" ? "Player1" : name1, // if an empty string has been given
+                name2 === "" ? "Player2" : name2,
+            ];
+            return {
+                revele: false,
+                game: new Game(2, nameArray)
+            };
+        },
+        methods: {
+            toggleModale: function () {
+                this.revele = !this.revele;
+            }
+        }
     }
-  }
-}
 </script>
 
 <style scoped>
-.jeu {
-    margin-right: 1%;
-    margin-top: 1%;
-    margin-left: 1%
-}
+    .jeu {
+        margin-right: 1%;
+        margin-top: 1%;
+        margin-left: 1%
+    }
 
-.boutonRegles {
-	position: absolute;
-	bottom: 2%;
-	height: 18px; 
-	width: 18px; 
-	background-color: rgb(255, 255, 255);
-	border: 3px solid rgba(0, 0, 0, 1);
-	border-radius: 50%; 
-	text-align: center;
-	font-weight: bold;
-	text-decoration: none;
-	cursor: pointer;
-}
+    .boutonRegles {
+        position: absolute;
+        bottom: 2%;
+        height: 18px;
+        width: 18px;
+        background-color: rgb(255, 255, 255);
+        border: 3px solid rgba(0, 0, 0, 1);
+        border-radius: 50%;
+        text-align: center;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
-.gauche {
-    float:left;
-    margin-top: 1%;
-    width: 22%;
-}
+    .gauche {
+        float: left;
+        margin-top: 1%;
+        width: 22%;
+    }
 
-.droite {
-    margin-left: 22%;
-    margin-top: 1%;
-}
+    .droite {
+        margin-left: 22%;
+        margin-top: 1%;
+    }
 
-.rectangle {
-  margin-left: none;
-}
-
+    .rectangle {
+        margin-left: none;
+    }
 </style>

@@ -1,102 +1,182 @@
-[ 	
-	{
-		"id":0,
-		"text":"",
-		"type":"nomJoueur"
-	},
-	{ 
-		"id":1,
-		"text":"As (1 x nombre de 1)",
-		"type":"figure"
-	},
-	{
-		"id":2,
-		"text":"Deux (2 x nombre de 2)",
-		"type":"figure"
-	},
-	{
-		"id":3,
-		"text":"Trois (3 x nombre de 3)",
-		"type":"figure"
-	},
-	{
-		"id":4,
-		"text":"Quatre (4 x nombre de 4)",
-		"type":"figure"
-	},
-	{
-		"id":5,
-		"text":"Cinq (5 x nombre de 5)",
-		"type":"figure"
-	},
-	{
-		"id":6,
-		"text":"Six (6 x nombre de 6)",
-		"type":"figure"
-	},
-	{
-		"id":7,
-		"text":"Bonus (35 points si >62)",
-		"type":"figure"
-	},
-	{
-		"id":8,
-		"text":"Total supérieur",
-		"type":"sousTotal"
-	},
-	{
-		"id":18,
-		"text":"",
-		"type":"espace"
-	},
-	{
-		"id":9,
-		"text":"Brelan (Total 3 dés)",
-		"type":"figure"
-	},
-	{
-		"id":10,
-		"text":"Carré (Total 4 dés)",
-		"type":"figure"
-	},
-	{
-		"id":11,
-		"text":"Full (25 points)",
-		"type":"figure"
-	},
-	{
-		"id":12,
-		"text":"Petite suite (30 points)",
-		"type":"figure"
-	},
-	{
-		"id":13,
-		"text":"Grand suite (40 points)",
-		"type":"figure"
-	},
-	{
-		"id":14,
-		"text":"Yahtzee (50 points)",
-		"type":"figure"
-	},
-	{
-		"id":15,
-		"text":"Chance (Total 5 dés)",
-		"type":"figure"
-	},
-	{
-		"id":16,
-		"text":"Total inférieur",
-		"type":"sousTotal"
-	},
-	{
-		"id":19,
-		"text":"",
-		"type":"espace"
-	},
-	{
-		"id":17,
-		"text":"Total",
-		"type":"total"
-	}
-	]
+[
+  {
+    "id": 0,
+    "text": "",
+    "type": "nomJoueur",
+    "defaultValue": 0,
+    "calcul": null,
+    "detailledCalcul": null,
+    "zone": 0
+  },
+  {
+    "id": 1,
+    "text": "As (1 x nombre de 1)",
+    "type": "figure",
+    "defaultValue": 0,
+    "calcul": "sumOf",
+    "detailledCalcul": "1",
+    "zone": 0
+  },
+  {
+    "id": 2,
+    "text": "Deux (2 x nombre de 2)",
+    "type": "figure",
+    "defaultValue": 0,
+    "calcul": "sumOf",
+    "detailledCalcul": "2",
+    "zone": 0
+  },
+  {
+    "id": 3,
+    "text": "Trois (3 x nombre de 3)",
+    "type": "figure",
+    "defaultValue": 0,
+    "detailledCalcul": "3",
+    "calcul": "sumOf",
+    "zone": 0
+  },
+  {
+    "id": 4,
+    "text": "Quatre (4 x nombre de 4)",
+    "type": "figure",
+    "defaultValue": 0,
+    "calcul": "sumOf",
+    "detailledCalcul": "4",
+    "zone": 0
+  },
+  {
+    "id": 5,
+    "text": "Cinq (5 x nombre de 5)",
+    "type": "figure",
+    "defaultValue": 0,
+    "calcul": "sumOf",
+    "detailledCalcul": "5",
+    "zone": 0
+  },
+  {
+    "id": 6,
+    "text": "Six (6 x nombre de 6)",
+    "type": "figure",
+    "defaultValue": 0,
+    "calcul": "sumOf",
+    "detailledCalcul": "6",
+    "zone": 0
+  },
+  {
+    "id": 7,
+    "text": "Bonus (35 points si >62)",
+    "type": "figure",
+    "defaultValue": 35,
+    "calcul": "automatic",
+    "detailledCalcul": "if sup 62",
+    "zone": 0
+  },
+  {
+    "id": 8,
+    "text": "Total supérieur",
+    "type": "sousTotal",
+    "defaultValue": 0,
+    "calcul": "total",
+    "detailledCalcul": null,
+    "zone": 0
+  },
+  {
+    "id": 18,
+    "text": "",
+    "type": "espace",
+    "defaultValue": 0,
+    "calcul": null,
+    "detailledCalcul": null,
+    "zone": 0
+  },
+  {
+    "id": 9,
+    "text": "Brelan (Total 3 dés)",
+    "type": "figure",
+    "defaultValue": 0,
+    "calcul": "sum",
+    "detailledCalcul": "if brelan",
+    "zone": 1
+  },
+  {
+    "id": 10,
+    "text": "Carré (Total 4 dés)",
+    "type": "figure",
+    "defaultValue": 0,
+    "calcul": "sum",
+    "detailledCalcul": "if carre",
+    "zone": 1
+  },
+  {
+    "id": 11,
+    "text": "Full (25 points)",
+    "type": "figure",
+    "defaultValue": 25,
+    "calcul": "fixed",
+    "detailledCalcul": "if full",
+    "zone": 1
+  },
+  {
+    "id": 12,
+    "text": "Petite suite (30 points)",
+    "type": "figure",
+    "defaultValue": 30,
+    "calcul": "fixed",
+    "detailledCalcul": "if yahtzee",
+    "zone": 1
+  },
+  {
+    "id": 13,
+    "text": "Grand suite (40 points)",
+    "type": "figure",
+    "defaultValue": 40,
+    "calcul": "fixed",
+    "detailledCalcul": "if grandeSuite",
+    "zone": 1
+  },
+  {
+    "id": 14,
+    "text": "Yahtzee (50 points)",
+    "type": "figure",
+    "defaultValue": 50,
+    "calcul": "fixed",
+    "detailledCalcul": "if petiteSuite",
+    "zone": 1
+  },
+  {
+    "id": 15,
+    "text": "Chance (Total 5 dés)",
+    "type": "figure",
+    "defaultValue": 0,
+    "calcul": "sum",
+    "detailledCalcul": "",
+    "zone": 1
+  },
+  {
+    "id": 16,
+    "text": "Total inférieur",
+    "type": "sousTotal",
+    "defaultValue": 0,
+    "calcul": "sum",
+    "detailledCalcul": null,
+    "zone": 1
+  },
+  {
+    "id": 19,
+    "text": "",
+    "type": "espace",
+    "defaultValue": 0,
+    "calcul": null,
+    "detailledCalcul": null,
+    "zone": 1
+  },
+  {
+    "id": 17,
+    "text": "Total",
+    "type": "total",
+    "defaultValue": 0,
+    "calcul": "total",
+    "detailledCalcul": null,
+    "zone": null
+  }
+]
