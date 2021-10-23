@@ -103,12 +103,13 @@ export default class Calcul {
         for (let i = 0; i < 6; i++) {
             if (count[des[i]] > 0) {
                 suite++;
+                if (suite >= nb) { return true; }
             }
             else {
                 suite = 0;
             }
         }
-        return suite >= nb;
+        return false;
     }
 }
 
