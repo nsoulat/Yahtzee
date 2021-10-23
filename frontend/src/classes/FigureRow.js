@@ -1,3 +1,4 @@
+import { compute, computeAutomatic } from "./Calcul";
 import Calcul from "./Calcul";
 
 export default class FigureRow {
