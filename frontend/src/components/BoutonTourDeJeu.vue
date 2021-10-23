@@ -1,6 +1,6 @@
 <template>
   <div class="tourDeJeu">
-      <div class="rectangle">
+      <div class="rectangle" @click="lancerLesDes(diceArray)">
           Lancer les dés             <!-- Il faudra regarder si le joueur peut relancer et afficher autre chose selon le cas (ie le nombre de lancers restants) -->
       </div>
   </div>
@@ -8,7 +8,16 @@
 
 <script>
 export default {
-
+    props:["diceArray"],
+    methods: {
+        lancerLesDes(diceArray) {
+            for (var i= 0; i < diceArray.length; i++) {
+                if (diceArray[i].Etat === "Libre") {
+                    diceArray[i].rollDice()
+                }
+            }
+        }
+    }
 }
 </script>
 
@@ -16,6 +25,7 @@ export default {
 
 .rectangle {
     height: 64px;
+    cursor: pointer;
 }
 
 </style>

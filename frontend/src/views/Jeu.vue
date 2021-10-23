@@ -1,9 +1,9 @@
 <template>
     <div class="Jeu">
         <tableau :game="game"/>
-        <tapisJeu />
-        <div class="gauche"><stockageDes /></div>
-        <div class="droite"><boutonTourDeJeu /></div>
+        <tapisJeu :diceArray="dice" />
+        <div class="gauche"><stockageDes :diceArray="dice" /></div>
+        <div class="droite"><boutonTourDeJeu :diceArray="dice" /></div>
 
         <modale :revele="revele" :toggleModale="toggleModale"></modale>
         <div v-on:click="toggleModale" class="boutonRegles">?</div>
@@ -18,6 +18,7 @@
     import boutonTourDeJeu from "../components/BoutonTourDeJeu.vue"
     import Modale from "../components/ModaleRegles.vue"
     import Game from "../classes/Game";
+    import Dice from "../classes/Dice";
 
     export default {
         name: 'Jeu',
@@ -36,9 +37,13 @@
                 name1 === "" ? "Player1" : name1, // if an empty string has been given
                 name2 === "" ? "Player2" : name2,
             ];
+
+            let diceArray = new Array(5).fill().map(() => new Dice());
+
             return {
                 revele: false,
-                game: new Game(2, nameArray)
+                game: new Game(2, nameArray),
+                dice: diceArray
             };
         },
         methods: {

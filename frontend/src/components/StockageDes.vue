@@ -1,25 +1,37 @@
 <template>
-  <div class="stockageDes">
-      
-  </div>
+	<div class="stockageDes">
+		<div v-for="(dice, i) in diceArray" :key="i">
+			<span v-if="dice.Etat === 'Bloque'">
+				<img :src="require('../assets/Face' + dice.Value + '.png')" alt="" class="de" @click="diceArray[i].changeEtat()">	
+			</span>
+		</div>
+	</div>
 </template>
 
 <script>
 export default {
-
+	props:["diceArray"]
 }
 </script>
 
 <style scoped>
 
 .stockageDes {
-  width:400px;
+	width:400px;
 	height:80px;
 	background:rgb(0, 83, 44);
-  border: solid;
-  border-color: rgb(0, 31, 10);
-  border-radius: 4px;
-  border-width: 3px;
+	border: solid;
+	border-color: rgb(0, 31, 10);
+	border-radius: 4px;
+	border-width: 3px;
 }
 
+.de {
+	width: 50px;
+	height: 50px;
+	float: left;
+	margin-top: 3%;
+	margin-left: 5.5%;
+	cursor: pointer;
+}
 </style>
