@@ -3,16 +3,13 @@
         <table>
             <tr v-for="figure in game.Figures" :key="figure.Id" :class="figure.Type">
                 <td :class='colonneInfo'> {{ figure.Text }} </td>
-                <td v-for="(point, playerId) in figure.Point" :key="playerId" :class="[figure.isClickable(playerId, 0) ? 'clickable' : '', 'colonneJoueur']">
+                <td v-for="(point, playerId) in figure.Point" :key="playerId" :class="[figure.isClickable(playerId, game.CurrentPlayer.Id) ? 'clickable' : '', 'colonneJoueur']" @click="handler(figure, playerId)">
                     <span v-if="figure.Id === 0">
                         {{ game.Joueurs[playerId].Name }}
                     </span>
+                    <span v-else-if="figure.Type === 'espace'"></span>
                     <span v-else>
-                        {{ figure.hasValue() ? point.value : "" }}
-                        {{ figure.hasValue() ? 1 : 0 }}
-                        {{ figure.isClickable(playerId, 0) ? 1 : 0 }}
-                        {{ figure.Calcul }}
-                        {{ figure.isValueFixed(playerId) ? 1 : 0 }}
+                        {{ getValue(figure, playerId) }}
                     </span>
                 </td>
             </tr>
@@ -25,8 +22,41 @@
         props: ["game"],
         data() {
             return {
-
+                dices: new Array(5)
             };
+        },
+        created() {
+            this.roll()
+        },
+        methods: {
+            handler: function (figure, playerId) {
+                if (figure.isClickable(playerId, this.game.CurrentPlayer.Id)) {
+                    console.log(`${playerId} clicked on the row ${figure.Id}`);
+                    this.game.play(figure.Id, playerId, this.dices);
+                    this.game.endTurn();
+                    this.roll();
+                }
+            },
+            roll: function () {
+                for (let i = 0; i < 5; i++) {
+                    this.dices[i] = this.getRandomInt(6) + 1;
+                }
+                console.log(`dés: ${this.dices[0]} ${this.dices[1]} ${this.dices[2]} ${this.dices[3]} ${this.dices[4]}`)
+            },
+            getRandomInt: function (max) { // between 0 and max-1
+                return Math.floor(Math.random() * max);
+            },
+            getValue: function (figure, playerId) {
+                if (figure.isValueFixed(playerId)) {
+                    return figure.getValue(playerId);
+                }
+                else if (figure.isClickable(playerId, this.game.CurrentPlayer.Id)) {
+                    return figure.getComputedValue(this.game.CurrentPlayer.Id, this.dices);
+                }
+                else {
+                    return "";
+                }
+            }
         }
     }
 
@@ -40,6 +70,8 @@
         border: solid 4px #000;
         background-color: rgba(255,255,255,0.45);
         float: right;
+        text-decoration: none;
+        cursor: default;
     }
 
     table td {
@@ -69,6 +101,7 @@
     .clickable {
         background-color: rgb(40,40,40,0.1);
         color: rgb(72,0,255);
+        cursor: pointer;
     }
 
     .sousTotal {
