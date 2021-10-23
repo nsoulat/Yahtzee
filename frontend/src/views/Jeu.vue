@@ -18,6 +18,7 @@
     import boutonTourDeJeu from "../components/BoutonTourDeJeu.vue"
     import Modale from "../components/ModaleRegles.vue"
     import Game from "../classes/Game";
+    import Dice from "../classes/Dice";
 
     export default {
         name: 'Jeu',
@@ -36,9 +37,13 @@
                 name1 === "" ? "Player1" : name1, // if an empty string has been given
                 name2 === "" ? "Player2" : name2,
             ];
+
+            let diceArray = new Array(5).fill().map(dice => new Dice());
+
             return {
                 revele: false,
-                game: new Game(2, nameArray)
+                game: new Game(2, nameArray),
+                diceArray
             };
         },
         methods: {
