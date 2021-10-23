@@ -131,7 +131,7 @@
     "type": "figure",
     "defaultValue": 30,
     "calcul": "fixed",
-    "detailledCalcul": "if yahtzee",
+    "detailledCalcul": "if petiteSuite",
     "zone": 2
   },
   {
@@ -149,7 +149,7 @@
     "type": "figure",
     "defaultValue": 50,
     "calcul": "fixed",
-    "detailledCalcul": "if petiteSuite",
+    "detailledCalcul": "if yahtzee",
     "zone": 2
   },
   {
@@ -167,7 +167,7 @@
     "type": "sousTotal",
     "defaultValue": 0,
     "calcul": "sum",
-    "detailledCalcul": "3",
+    "detailledCalcul": "2",
     "zone": 3
   },
   {
@@ -185,7 +185,7 @@
     "type": "total",
     "defaultValue": 0,
     "calcul": "total",
-    "detailledCalcul": "2",
+    "detailledCalcul": "3",
     "zone": -1
   }
 ]

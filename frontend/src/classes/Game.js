@@ -28,11 +28,12 @@ export default class Game {
                 item.zone,
                 this.Joueurs);
             this.Figures.push(figure);
-            if (item.type === FigureRow.SousTotal || item.type === FigureRow.Totals) {
-                this.Totals[parseInt(item.zone, 10)] = figure;
+            let zoneInt = parseInt(item.zone, 10);
+            if (item.type === FigureRow.SousTotal || item.type === FigureRow.Total) {
+                this.Totals[parseInt(item.detailledCalcul, 10)] = figure;
             }
-            if (!this.Zones.includes(item.zone) && item.zone > -1) {
-                this.Zones.push(item.zone);
+            if (!this.Zones.includes(zoneInt) && zoneInt > -1) {
+                this.Zones.push(zoneInt);
             }
         });
 
@@ -49,29 +50,44 @@ export default class Game {
         this.Joueurs.push(new Joueur(id, name));
     }
 
+    play(figureId, playerId, des) {
+        this.Figures[figureId].hasPlayed(playerId, des);
+    }
+
     updateTotal(playerId) {
         // in the figureList.json, the zone must be well order
         this.Zones.forEach(zone => {
-            let count = this.getTotalForZone(zone);
+            let count = this.getTotalForZone(playerId, zone);
             this.Totals[zone].setValue(playerId, count);
+            this.updateAutomaticInZone(playerId, zone);
+        });
+    }
+
+    updateAutomaticInZone(playerId, zone) {
+        this.Figures.forEach(figure => {
+            if (figure.isAutomatic() && figure.Zone === zone) {
+                figure.setAutomaticValue(playerId, this.Totals[zone].getValue(playerId));
+            }
         });
     }
 
     endTurn() {
-        this.updateTotal();
-        this.CurrentPlayer = this.CurrentPlayer[++this.TurnCounter]
+        this.updateTotal(this.CurrentPlayer.Id);
+        this.CurrentPlayer = this.Joueurs[(++this.TurnCounter) % this.Joueurs.length];
         if (this.isTheEnd()) {
             this.IsProgress = false;
         }
+        console.log(`is game still goes on: ${this.IsProgress}`);
     }
 
     isTheEnd() {
+        let isThereMove = false;
         this.Figures.forEach(figure => {
-            if (figure.isClickable(this.CurrentPlayer, this.CurrentPlayer)) {
-                return false;
+            if (figure.isClickable(this.CurrentPlayer.Id, this.CurrentPlayer.Id)) {
+                isThereMove = true;
             }
         });
-        return true;
+        return !isThereMove;
     }
 
     getWinners() {
