@@ -6,7 +6,7 @@ export default class Dice {
     }
 
     changeEtat() {
-        this.Etat = this.Etat == "Bloque" ? "Libre" : "Bloque";
+        this.Etat = this.Etat === "Bloque" ? "Libre" : "Bloque";
     }
 
 	setRandomDiceData() {
