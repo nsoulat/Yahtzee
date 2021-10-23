@@ -9,13 +9,14 @@ export default class FigureRow {
 		this.Type = type;
 		this.Calcul = calcul;
 		this.DetailledCalcul = detailledCalcul;
+		this.DefaultValue = defaultValue;
 		this.Zone = zone;
 		this.Point = {};
 		joueurs.forEach(joueur => {
-			var playerId = joueur.Id;
+			let playerId = joueur.Id;
 
-			var value = defaultValue ?? 0;
-			var isFixed = (type != FigureRow.Figure)
+			let value = defaultValue ?? 0;
+			let isFixed = (type != FigureRow.Figure)
 				? true : false;
 			this.addPoint(playerId, value, isFixed);
 		});
