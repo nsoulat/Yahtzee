@@ -31,7 +31,9 @@
                     this.game.play(figure.Id, playerId, this.diceArray);
                     this.game.endTurn();
                     this.resetDice();
-                    this.$parent.toggleModaleChangement();
+                    if (this.game.IsProgress) {
+                        this.$parent.toggleModaleChangement();
+                    }
                 }
             },
             getValue: function (figure, playerId) {
