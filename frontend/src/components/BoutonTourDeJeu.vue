@@ -1,7 +1,7 @@
 <template>
     <div class="tourDeJeu">
-        <div class="rectangle" @click="lancerLesDes(diceArray)" v-if="game.Compteur > 0">
-            Lancer les dés ({{ game.Compteur }}/3)            <!-- Il faudra regarder si le joueur peut relancer et afficher autre chose selon le cas (ie le nombre de lancers restants) -->
+        <div class="rectangle" @click="lancerLesDes(diceArray)" v-if="game.Compteur > 0 && !allDiceBloque(diceArray)">
+            Lancer les dés ({{ game.Compteur }}/3)
         </div>
         {{ compteur }}
     </div>
@@ -22,6 +22,15 @@
 
             getCompteur() {
                 return this.game.Compteur;
+            },
+
+            allDiceBloque(diceArray) {
+                for (var i = 0; i < diceArray.length; i++) {
+                    if (diceArray[i].Etat === "Libre") {
+                        return false;
+                    }
+                }
+                return true;
             }
         }
     }

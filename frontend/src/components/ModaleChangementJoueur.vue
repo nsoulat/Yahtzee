@@ -1,7 +1,7 @@
 <template>
     <transition name="modal-fade">
         <div class="bloc-modaleChangement" v-if="afficheChangement">
-            <div class="overlay" v-on:click="toggleModaleChangement">
+            <div class="overlay" @click="toggleModaleChangement">
                 <div class="modaleChangement">
                     <div class="rectangle">
                         Au tour de {{ game.CurrentPlayer.Name }}
@@ -54,6 +54,6 @@
 
     .modal-fade-enter-active,
     .modal-fade-leave-active {
-        transition: opacity .3s ease;
+        transition: opacity .1s ease;
     }
 </style>
