@@ -1,69 +1,59 @@
 <template>
-  <transition name="modal-fade">
-    <div class="bloc-modaleChangement" v-if="afficheChangement">
-      <div class="overlay" v-on:click="toggleModaleChangement"></div>
-      <div class="modaleChangement">
-        <div class="rectangle">
-          Au tour de Joueur1
+    <transition name="modal-fade">
+        <div class="bloc-modaleChangement" v-if="afficheChangement">
+            <div class="overlay" v-on:click="toggleModaleChangement">
+                <div class="modaleChangement">
+                    <div class="rectangle">
+                        Au tour de {{ game.CurrentPlayer.Name }}
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </transition>
+    </transition>
 </template>
 
 <script>
-export default {
-    name:"ModaleChangement",
-    props: ["afficheChangement", "toggleModaleChangement"],  
-}
+    export default {
+        name: "modaleChangementJoueur",
+        props: ["afficheChangement", "toggleModaleChangement", "game"],
+    }
 </script>
 
 <style scoped>
 
-.bloc-modaleChangement {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
+    .bloc-modaleChangement {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
 
-.overlay {
-  background: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
+    .overlay {
+        background: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
 
-.modaleChangement {
-  color: #333;
-  position: fixed;
-  top : 35%;
-  left: 2%;
-  right: 2%;
-  max-height: 600px;
-  overflow-y: auto;
-  border:2px solid black;
-  box-shadow: 10px 5px 5px rgba(0,0,0,0.2);
-}
+    .modaleChangement {
+        background-color: rgba(51, 51, 51, 0);
+        position: fixed;
+        top: 35%;
+        left: 2%;
+        right: 2%;
+        max-height: 600px;
+        overflow-y: auto;
+    }
 
-.btn-modale {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  text-decoration: none;
-	cursor: pointer;
-}
+    .modal-fade-enter,
+    .modal-fade-leave-to {
+        opacity: 0;
+    }
 
-.modal-fade-enter,
-  .modal-fade-leave-to {
-    opacity: 0;
-  }
-
-  .modal-fade-enter-active,
-  .modal-fade-leave-active {
-    transition: opacity .5s ease;
-  }
-
+    .modal-fade-enter-active,
+    .modal-fade-leave-active {
+        transition: opacity .3s ease;
+    }
 </style>
