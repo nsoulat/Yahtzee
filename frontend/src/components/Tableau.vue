@@ -68,9 +68,9 @@
         cursor: default;
     }
 
-        table td {
-            border: 1px solid black;
-        }
+    table, td {
+        border: 1px solid black;
+    }
 
     .nomJoueur {
         height: 33px;

@@ -1,10 +1,14 @@
 <template>
     <div class="Jeu">
+        <div id="DiceZone" v-if="game.IsProgress">
+            <tapisJeu class="TapisJeu" :diceArray="dice" />
+            <div class="gauche"><stockageDes :diceArray="dice" /></div>
+            <div class="droite"><boutonTourDeJeu :game="game" :diceArray="dice" /></div>
+        </div>
+        <div id="WinnerZone" v-else>
+            <winner :game="game" />
+        </div>
         <tableau :game="game" :diceArray='dice' />
-        <tapisJeu :diceArray="dice" />
-        <div class="gauche"><stockageDes :diceArray="dice" /></div>
-        <div class="droite"><boutonTourDeJeu :game="game" :diceArray="dice" /></div>
-
         <modaleRegles :revele="revele" :toggleModale="toggleModale"></modaleRegles>
         <div v-on:click="toggleModale" class="boutonRegles">?</div>
 
@@ -16,6 +20,7 @@
 <script>
     import tableau from "../components/Tableau.vue"
     import tapisJeu from "../components/TapisJeu.vue"
+    import winner from "../components/Winner.vue"
     import stockageDes from "../components/StockageDes.vue"
     import boutonTourDeJeu from "../components/BoutonTourDeJeu.vue"
     import modaleRegles from "../components/ModaleRegles.vue"
@@ -28,6 +33,7 @@
         components: {
             tableau,
             tapisJeu,
+            winner,
             modaleRegles,
             stockageDes,
             boutonTourDeJeu,
@@ -70,6 +76,44 @@
         margin-left: 1%
     }
 
+    #DiceZone {
+        float: left;
+        display: inline-grid;
+        grid-template-columns: [col1] auto [col2] auto [col3];
+        grid-template-rows: [row1] auto [row2] auto [row3];
+        width: 50%;
+    }
+
+    .TapisJeu {
+        grid-column-start: col1;
+        grid-column-end: col3;
+        grid-row-start: row1;
+        grid-row-end: row2;
+    }
+
+    .gauche {
+        grid-column-start: col1;
+        grid-column-end: col2;
+        grid-row-start: row2;
+        grid-row-end: row3;
+        margin-top: 1%;
+        width: 100%;
+    }
+
+    .droite {
+        grid-column-start: col2;
+        grid-column-end: col3;
+        grid-row-start: row2;
+        grid-row-end: row3;
+        margin-left: min(1%, 10px);
+        float: left;
+        margin-top: 1%;
+    }
+
+    #WinnerZone {
+        float: left;
+    }
+
     .boutonRegles {
         position: absolute;
         bottom: 2%;
@@ -82,17 +126,6 @@
         font-weight: bold;
         text-decoration: none;
         cursor: pointer;
-    }
-
-    .gauche {
-        float: left;
-        margin-top: 1%;
-        width: 22%;
-    }
-
-    .droite {
-        margin-left: 22%;
-        margin-top: 1%;
     }
 
     .rectangle {
