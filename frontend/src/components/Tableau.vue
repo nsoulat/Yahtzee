@@ -20,7 +20,7 @@
 <script>
 
     export default {
-        props: ['game','diceArray'],
+        props: ['game', 'diceArray'],
         created() {
             console.log(this.diceArray)
         },
@@ -48,7 +48,8 @@
             resetDice() {
                 this.diceArray.map(dice => {
                     dice.devientLibre();
-                    dice.rollDice();});
+                    dice.rollDice();
+                });
             }
         }
     }
@@ -67,9 +68,9 @@
         cursor: default;
     }
 
-    table td {
-        border: 1px solid black;
-    }
+        table td {
+            border: 1px solid black;
+        }
 
     .nomJoueur {
         height: 33px;

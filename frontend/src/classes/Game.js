@@ -78,7 +78,7 @@ export default class Game {
         this.CurrentPlayer = this.Joueurs[(++this.TurnCounter) % this.Joueurs.length];
         if (this.isTheEnd()) {
             this.IsProgress = false;
-            this.Compteur=0;
+            this.Compteur = 0;
         }
         else {
             this.resetCompteur();

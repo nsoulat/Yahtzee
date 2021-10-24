@@ -9,24 +9,24 @@ export function compute(des, calculType, detailledCalcul, defaultValue) {
                 if (des[i].Value === digit) {
                     count += digit;
                 }
-            } 
+            }
         }
             break;
         case Calcul.Sum: {
             let bool = hasIf(detailledCalcul);
             if (!bool || (bool && computeIf(detailledCalcul.substring(3), des))) {
-                    for (let i = 0; i < 5; i++) {
-                        count += des[i].Value;
-                    }
+                for (let i = 0; i < 5; i++) {
+                    count += des[i].Value;
                 }
             }
+        }
             break;
         case Calcul.Fixed: {
             let bool = hasIf(detailledCalcul);
             if (!bool || (bool && computeIf(detailledCalcul.substring(3), des))) {
-                   count = defaultValue;
-                }
+                count = defaultValue;
             }
+        }
             break;
         default:
             break;
@@ -71,7 +71,7 @@ function computeIfAutomatic(detailledCalculWithoutIf, comparison) {
     let actions = detailledCalculWithoutIf.split(" ");
     switch (actions[0]) {
         case 'sup':
-            console.log(`${comparison} > ${parseInt(actions[1],10)}`)
+            console.log(`${comparison} > ${parseInt(actions[1], 10)}`)
             return comparison > parseInt(actions[1], 10);
         default:
             console.log(`if automatic non géré: ${actions[0]}`)
