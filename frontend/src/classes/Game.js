@@ -17,7 +17,7 @@ export default class Game {
         let id = 0;
         this.Zones = [];
 
-        this.Compteur = 3;
+        this.Compteur = 2;
 
         figurelist.forEach(item => {
             var figure = new FigureRow(
@@ -125,7 +125,7 @@ export default class Game {
     }
 
     resetCompteur() {
-        this.Compteur = 3;
+        this.Compteur = 2;
     }
 
 }
