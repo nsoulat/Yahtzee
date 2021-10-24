@@ -100,7 +100,7 @@
   },
   {
     "id": 9,
-    "text": "Brelan (Total 3 dés)",
+    "text": "Brelan (Total 5 dés)",
     "type": "figure",
     "defaultValue": 0,
     "calcul": "sum",
@@ -109,7 +109,7 @@
   },
   {
     "id": 10,
-    "text": "Carré (Total 4 dés)",
+    "text": "Carré (Total 5 dés)",
     "type": "figure",
     "defaultValue": 0,
     "calcul": "sum",
@@ -136,7 +136,7 @@
   },
   {
     "id": 13,
-    "text": "Grand suite (40 points)",
+    "text": "Grande suite (40 points)",
     "type": "figure",
     "defaultValue": 40,
     "calcul": "fixed",
