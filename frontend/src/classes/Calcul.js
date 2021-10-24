@@ -1,4 +1,4 @@
-// sera appel� par chacune des figures qui sont "clickables" 
+// sera appelé par chacune des figures qui sont "clickables" 
 // des = { 0: value, 1: value, ..., 4: value }
 export function compute(des, calculType, detailledCalcul, defaultValue) {
     let count = 0;
