@@ -1,20 +1,22 @@
 <template>
 	<div class="tapisJeu">
 		<div class="ExterieurRectangle">
-		<div class="InterieurRectangle">
-			<div v-for="(dice, i) in diceArray" :key="i">
-				<span v-if="dice.Etat === 'Libre'">
-					<img :src="require('../assets/Face' + dice.Value + '.png')" alt="" :id="'dice'+i" class="dice" @click="diceArray[i].changeEtat()">
-				</span>
+			<div class="InterieurRectangle">
+				<div v-for="(dice, i) in diceArray" :key="i">
+					<span v-if="dice.Etat === 'Libre'">
+						<img :src="require('../assets/Face' + dice.Value + '.png')" 
+						alt="" :id="'dice'+i" class="dice" 
+						@click="diceArray[i].changeEtat()">
+					</span>
+				</div>
 			</div>
-		</div>
 		</div>
 	</div>
 </template>
 
 <script>
 export default {
-	props:["diceArray"]
+	props:["diceArray"],
 }
 </script>
 

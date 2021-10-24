@@ -9,6 +9,10 @@ export default class Dice {
         this.Etat = this.Etat === "Bloque" ? "Libre" : "Bloque";
     }
 
+	devientLibre() {
+		this.Etat = "Libre";
+	}
+
 	setRandomDiceData() {
 		this.Value = Math.floor(Math.random() * 6) + 1;
 	}

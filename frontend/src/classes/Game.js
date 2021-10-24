@@ -17,6 +17,8 @@ export default class Game {
         let id = 0;
         this.Zones = [];
 
+        this.Compteur = 3;
+
         figurelist.forEach(item => {
             var figure = new FigureRow(
                 id++,
@@ -43,7 +45,7 @@ export default class Game {
 
         this.CurrentPlayer = this.Joueurs[0]; // initial player
         this.TurnCounter = 0;
-        console.log("Création d'un nouveau Jeu");
+        console.log("Crï¿½ation d'un nouveau Jeu");
     }
 
     addPlayer(id, name) {
@@ -76,6 +78,10 @@ export default class Game {
         this.CurrentPlayer = this.Joueurs[(++this.TurnCounter) % this.Joueurs.length];
         if (this.isTheEnd()) {
             this.IsProgress = false;
+            this.Compteur=0;
+        }
+        else {
+            this.resetCompteur();
         }
         console.log(`is game still goes on: ${this.IsProgress}`);
     }
@@ -94,7 +100,7 @@ export default class Game {
         let winners = [];
         let maxPoints = 0;
         this.Joueurs.forEach(joueur => {
-            let total = this.Figures.at(-1); // A améliorer ?
+            let total = this.Figures.at(-1); // A amï¿½liorer ?
             if (total > maxPoints) {
                 maxPoints = total;
                 winners = [joueur];
@@ -114,6 +120,14 @@ export default class Game {
             }
         });
         return count;
+    }
+
+    decreaseCompteur() {
+        this.Compteur--;
+    }
+
+    resetCompteur() {
+        this.Compteur = 3;
     }
 
 }

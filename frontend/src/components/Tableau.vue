@@ -18,6 +18,7 @@
 </template>
 
 <script>
+
     export default {
         props: ['game','diceArray'],
         created() {

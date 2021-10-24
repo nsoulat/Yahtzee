@@ -3,7 +3,7 @@
         <tableau :game="game" :diceArray='dice' />
         <tapisJeu :diceArray="dice" />
         <div class="gauche"><stockageDes :diceArray="dice" /></div>
-        <div class="droite"><boutonTourDeJeu :diceArray="dice" /></div>
+        <div class="droite"><boutonTourDeJeu :game="game" :diceArray="dice" /></div>
 
         <modale :revele="revele" :toggleModale="toggleModale"></modale>
         <div v-on:click="toggleModale" class="boutonRegles">?</div>
