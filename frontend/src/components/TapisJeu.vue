@@ -4,7 +4,7 @@
             <div class="InterieurRectangle">
                 <div v-for="(dice, i) in diceArray" :key="i">
                     <span v-if="dice.Etat === 'Libre'">
-                        <img :src="require('../assets/Face' + dice.Value + '.png')"
+                        <img :src="require('../assets/Face' + dice.ValueTemporary + '.png')"
                              alt="" :id="'dice'+i" class="dice"
                              @click="diceArray[i].changeEtat()">
                     </span>

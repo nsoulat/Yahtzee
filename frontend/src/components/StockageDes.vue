@@ -2,7 +2,7 @@
 	<div class="stockageDes">
 		<div v-for="(dice, i) in diceArray" :key="i">
 			<span v-if="dice.Etat === 'Bloque'">
-				<img :src="require('../assets/Face' + dice.Value + '.png')" alt="" class="de" @click="diceArray[i].changeEtat()">	
+				<img :src="require('../assets/Face' + dice.ValueTemporary + '.png')" alt="" class="de" @click="diceArray[i].changeEtat()">	
 			</span>
 		</div>
 	</div>
