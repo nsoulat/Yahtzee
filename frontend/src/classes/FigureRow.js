@@ -15,7 +15,7 @@ export default class FigureRow {
 		joueurs.forEach(joueur => {
 			let playerId = joueur.Id;
 
-			let value = defaultValue ?? 0;
+			let value = 0;
 			let isFixed = (type != FigureRow.Figure)
 				? true : false;
 			this.addPoint(playerId, value, isFixed);
@@ -52,10 +52,11 @@ export default class FigureRow {
     }
 
 	getValue(playerId) {
-		if (this.isValueFixed(playerId)) {
+
+		// if (this.isValueFixed(playerId)) {
 			return this.Point[playerId].value;
-		}
-		return 0;
+		// }
+		// return 0;
     }
 
 	isClickable(playerId, currentPlayerId) {
@@ -81,7 +82,7 @@ export default class FigureRow {
 		switch (this.Type) {
 			case FigureRow.Figure:
 				if (this.isValueFixed(playerId) && !this.isAutomatic()) {
-					console.log(`La valeur est déjà fixée: ${this.Point[playerId].value} (${value})`);
+					console.log(`La valeur est dï¿½jï¿½ fixï¿½e: ${this.Point[playerId].value} (${value})`);
 				}
 				else {
 					this.Point[playerId].value = value;
@@ -98,7 +99,8 @@ export default class FigureRow {
 	}
 
 	setAutomaticValue(playerId, total) {
-		let value = computeAutomatic(this.DetailledCalcul, this.defaultValue, total);
+		let value = computeAutomatic(this.DetailledCalcul, this.DefaultValue, total);
+		console.log(`Value set to ${value}`)
 		this.setValue(playerId, value);
     }
 }

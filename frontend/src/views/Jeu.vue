@@ -1,6 +1,6 @@
 <template>
     <div class="Jeu">
-        <tableau :game="game"/>
+        <tableau :game="game" :diceArray='dice' />
         <tapisJeu :diceArray="dice" />
         <div class="gauche"><stockageDes :diceArray="dice" /></div>
         <div class="droite"><boutonTourDeJeu :diceArray="dice" /></div>

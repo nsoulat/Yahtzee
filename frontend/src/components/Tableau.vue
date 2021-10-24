@@ -19,39 +19,24 @@
 
 <script>
     export default {
-        props: ["game"],
-        data() {
-            return {
-                dices: new Array(5)
-            };
-        },
+        props: ['game','diceArray'],
         created() {
-            this.roll()
+            console.log(this.diceArray)
         },
         methods: {
             handler: function (figure, playerId) {
                 if (figure.isClickable(playerId, this.game.CurrentPlayer.Id)) {
                     console.log(`${playerId} clicked on the row ${figure.Id}`);
-                    this.game.play(figure.Id, playerId, this.dices);
+                    this.game.play(figure.Id, playerId, this.diceArray);
                     this.game.endTurn();
-                    this.roll();
                 }
-            },
-            roll: function () {
-                for (let i = 0; i < 5; i++) {
-                    this.dices[i] = this.getRandomInt(6) + 1;
-                }
-                console.log(`dés: ${this.dices[0]} ${this.dices[1]} ${this.dices[2]} ${this.dices[3]} ${this.dices[4]}`)
-            },
-            getRandomInt: function (max) { // between 0 and max-1
-                return Math.floor(Math.random() * max);
             },
             getValue: function (figure, playerId) {
                 if (figure.isValueFixed(playerId)) {
                     return figure.getValue(playerId);
                 }
                 else if (figure.isClickable(playerId, this.game.CurrentPlayer.Id)) {
-                    return figure.getComputedValue(this.game.CurrentPlayer.Id, this.dices);
+                    return figure.getComputedValue(this.game.CurrentPlayer.Id, this.diceArray);
                 }
                 else {
                     return "";
