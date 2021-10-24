@@ -57,6 +57,14 @@
             },
             toggleModaleChangement: function () {
                 this.afficheChangement = !this.afficheChangement;
+                let count = 0;
+                const timer = setInterval(() => {
+                        if (count >= 11) {
+                        clearInterval(timer);
+                        this.afficheChangement = false;
+                    }
+                    count += 1;
+                }, 80);
             },
 
         }
