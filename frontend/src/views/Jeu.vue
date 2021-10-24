@@ -5,8 +5,10 @@
         <div class="gauche"><stockageDes :diceArray="dice" /></div>
         <div class="droite"><boutonTourDeJeu :game="game" :diceArray="dice" /></div>
 
-        <modale :revele="revele" :toggleModale="toggleModale"></modale>
+        <modaleRegles :revele="revele" :toggleModale="toggleModale"></modaleRegles>
         <div v-on:click="toggleModale" class="boutonRegles">?</div>
+
+        <modaleChangementJoueur :afficheChangement="afficheChangement" :toggleModaleChangement="toggleModaleChangement" :game="game"></modaleChangementJoueur>
 
     </div>
 </template>
@@ -16,7 +18,8 @@
     import tapisJeu from "../components/TapisJeu.vue"
     import stockageDes from "../components/StockageDes.vue"
     import boutonTourDeJeu from "../components/BoutonTourDeJeu.vue"
-    import Modale from "../components/ModaleRegles.vue"
+    import modaleRegles from "../components/ModaleRegles.vue"
+    import modaleChangementJoueur from "../components/ModaleChangementJoueur.vue"
     import Game from "../classes/Game";
     import Dice from "../classes/Dice";
 
@@ -25,9 +28,10 @@
         components: {
             tableau,
             tapisJeu,
-            modale: Modale,
+            modaleRegles,
             stockageDes,
-            boutonTourDeJeu
+            boutonTourDeJeu,
+            modaleChangementJoueur
         },
         data() {
             let name1 = this.$route.query.name1 ?? ""; // if we call /jeu alone
@@ -42,6 +46,7 @@
 
             return {
                 revele: false,
+                afficheChangement: false,
                 game: new Game(2, nameArray),
                 dice: diceArray
             };
@@ -49,7 +54,11 @@
         methods: {
             toggleModale: function () {
                 this.revele = !this.revele;
-            }
+            },
+            toggleModaleChangement: function () {
+                this.afficheChangement = !this.afficheChangement;
+            },
+
         }
     }
 </script>

@@ -1,10 +1,11 @@
 <template>
   <transition name="modal-fade">
     <div class="bloc-modaleChangement" v-if="afficheChangement">
-      <div class="overlay" v-on:click="toggleModaleChangement"></div>
-      <div class="modaleChangement">
-        <div class="rectangle">
-          Au tour de Joueur1
+      <div class="overlay" v-on:click="toggleModaleChangement">
+        <div class="modaleChangement">
+          <div class="rectangle">
+            Au tour de {{game.CurrentPlayer.Name}}
+          </div>
         </div>
       </div>
     </div>
@@ -13,8 +14,8 @@
 
 <script>
 export default {
-    name:"ModaleChangement",
-    props: ["afficheChangement", "toggleModaleChangement"],  
+    name:"modaleChangementJoueur",
+    props: ["afficheChangement", "toggleModaleChangement","game"],  
 }
 </script>
 
@@ -37,23 +38,13 @@ export default {
 }
 
 .modaleChangement {
-  color: #333;
+  background-color: rgba(51, 51, 51, 0);
   position: fixed;
   top : 35%;
   left: 2%;
   right: 2%;
   max-height: 600px;
   overflow-y: auto;
-  border:2px solid black;
-  box-shadow: 10px 5px 5px rgba(0,0,0,0.2);
-}
-
-.btn-modale {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  text-decoration: none;
-	cursor: pointer;
 }
 
 .modal-fade-enter,
@@ -63,7 +54,7 @@ export default {
 
   .modal-fade-enter-active,
   .modal-fade-leave-active {
-    transition: opacity .5s ease;
+    transition: opacity .3s ease;
   }
 
 </style>

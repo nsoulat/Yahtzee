@@ -30,6 +30,8 @@
                     console.log(`${playerId} clicked on the row ${figure.Id}`);
                     this.game.play(figure.Id, playerId, this.diceArray);
                     this.game.endTurn();
+                    this.resetDice();
+                    this.$parent.toggleModaleChangement();
                 }
             },
             getValue: function (figure, playerId) {
@@ -42,6 +44,11 @@
                 else {
                     return "";
                 }
+            },
+            resetDice() {
+                this.diceArray.map(dice => {
+                    dice.devientLibre();
+                    dice.rollDice();});
             }
         }
     }

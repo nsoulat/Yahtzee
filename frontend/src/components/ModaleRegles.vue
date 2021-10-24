@@ -18,7 +18,7 @@ export default {
 components: {
     reglesEcrites
   },
-  name: "ModaleRegles",
+  name: "modaleRegles",
   props: ["revele", "toggleModale"],
   
 };
