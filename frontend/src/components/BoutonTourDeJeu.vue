@@ -1,7 +1,7 @@
 <template>
     <div class="tourDeJeu">
         <div class="rectangle" @click="lancerLesDes(diceArray)" v-if="game.Compteur > 0 && !allDiceBloque(diceArray)">
-            Lancer les dés ({{ game.Compteur }}/3)
+            Relancer les dés ({{ game.Compteur }}/2)
         </div>
         {{ compteur }}
     </div>
