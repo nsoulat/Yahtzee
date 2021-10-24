@@ -45,7 +45,6 @@ export default class Game {
 
         this.CurrentPlayer = this.Joueurs[0]; // initial player
         this.TurnCounter = 0;
-        console.log("Création d'un nouveau Jeu");
     }
 
     addPlayer(id, name) {
@@ -83,7 +82,6 @@ export default class Game {
         else {
             this.resetCompteur();
         }
-        console.log(`is game still goes on: ${this.IsProgress}`);
     }
 
     isTheEnd() {
@@ -100,7 +98,7 @@ export default class Game {
         let winners = [];
         let maxPoints = 0;
         this.Joueurs.forEach(joueur => {
-            let total = this.Figures.at(-1); // A améliorer ?
+            let total = this.Totals[this.Zones.at(-1)].getValue(joueur.Id);
             if (total > maxPoints) {
                 maxPoints = total;
                 winners = [joueur];
