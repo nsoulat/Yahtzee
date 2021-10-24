@@ -62,7 +62,7 @@ function computeIf(detailledCalculWithoutIf, des) {
         case 'full':
             return isFull(des);
         default:
-            console.log(`if non g�r�: ${actions[0]}`);
+            console.log(`if non géré: ${actions[0]}`);
     }
     return false;
 }
@@ -74,7 +74,7 @@ function computeIfAutomatic(detailledCalculWithoutIf, comparison) {
             console.log(`${comparison} > ${parseInt(actions[1],10)}`)
             return comparison > parseInt(actions[1], 10);
         default:
-            console.log(`if automatic non g�r�: ${actions[0]}`)
+            console.log(`if automatic non géré: ${actions[0]}`)
     }
     return false;
 

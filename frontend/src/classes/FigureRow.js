@@ -82,7 +82,7 @@ export default class FigureRow {
 		switch (this.Type) {
 			case FigureRow.Figure:
 				if (this.isValueFixed(playerId) && !this.isAutomatic()) {
-					console.log(`La valeur est d�j� fix�e: ${this.Point[playerId].value} (${value})`);
+					console.log(`La valeur est déjà fixée: ${this.Point[playerId].value} (${value})`);
 				}
 				else {
 					this.Point[playerId].value = value;

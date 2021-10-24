@@ -45,7 +45,7 @@ export default class Game {
 
         this.CurrentPlayer = this.Joueurs[0]; // initial player
         this.TurnCounter = 0;
-        console.log("Cr�ation d'un nouveau Jeu");
+        console.log("Création d'un nouveau Jeu");
     }
 
     addPlayer(id, name) {
@@ -100,7 +100,7 @@ export default class Game {
         let winners = [];
         let maxPoints = 0;
         this.Joueurs.forEach(joueur => {
-            let total = this.Figures.at(-1); // A am�liorer ?
+            let total = this.Figures.at(-1); // A améliorer ?
             if (total > maxPoints) {
                 maxPoints = total;
                 winners = [joueur];
