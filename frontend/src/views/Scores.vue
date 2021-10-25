@@ -1,11 +1,9 @@
 <template>
-	<div class="container-fluid mt-4">
+	<div>
 		<h1>Meilleurs scores</h1>
-		<ul class="list-group">
-			<li class="list-group-item"
-				v-for="(score, index) in scores"
-				:key="index"
-			>
+		<ul>
+			<li v-for="(score, index) in scores"
+				:key="index">
 				{{ score.name }} : {{ score.points }}
 			</li>
 		</ul>
