@@ -12,7 +12,7 @@ exports.create = (req, res) => {
         return;
     }
 
-    // Créer un Player (les colonnes id, createdAt et updatedAt sont gérées automatiquement)
+    // CrÃ©er un Player (les colonnes id, createdAt et updatedAt sont gÃ©rÃ©es automatiquement)
     const player = {
         name: req.body.name,
         birthDate: req.body.birthDate,
@@ -70,7 +70,7 @@ exports.findOne = (req, res) => {
         });
 };
 
-// Mise à jour d'un Player
+// Mise Ã  jour d'un Player
 exports.update = (req, res) => {
     const id = req.params.id;
 

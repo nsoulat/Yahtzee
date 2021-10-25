@@ -1,70 +1,103 @@
 ﻿<template>
-    <div class="tapisJeu">
-        <div class="ExterieurRectangle">
-            <div class="InterieurRectangle">
-                <span>{{ getWinner() }} {{ hasMultipleWinners() ? "ont" : "a" }} gagné !</span>
-            </div>
-        </div>
-    </div>
+	<div class="tapisJeu">
+		<div class="ExterieurRectangle">
+			<div class="InterieurRectangle">
+				<span>
+					{{ getWinner() }}
+					{{ hasMultipleWinners() ? "ont" : "a" }} gagné !
+				</span>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>
-    export default {
-        props: ["game"],
-        data() {
-            return {
-                winners: [{ Name: "Personne" }]
-            }
-        },
-        created() {
-            this.winners = this.game.getWinners();
-        },
-        methods: {
-            getWinner() {
-                if (this.hasMultipleWinners()) {
-                    return "Egalité ! " + this.winners[0].Name + " et " + this.winners[1].Name;
-                }
-                else {
-                    return this.winners[0].Name;
-                }
-            },
-            hasMultipleWinners() {
-                return this.winners.length > 1;
-            }
-        }
-    }
+import ScoreDataService from "../services/ScoreDataService";
+
+export default {
+	props: ["game"],
+	data() {
+		return {
+			winners: [{ Name: "Personne" }],
+            score: {
+				id: null,
+				name: "",
+				points: null,
+			}
+		};
+	},
+	created() {
+		this.winners = this.game.getWinners();
+        this.saveScore();
+	},
+	methods: {
+		getWinner() {
+			if (this.hasMultipleWinners()) {
+				return (
+					"Egalité ! " +
+					this.winners[0].Name +
+					" et " +
+					this.winners[1].Name
+				);
+			} else {
+				return this.winners[0].Name;
+			}
+		},
+		hasMultipleWinners() {
+			return this.winners.length > 1;
+		},
+		saveScore() {
+			this.game.Joueurs.forEach((joueur) => {
+				var data = {
+					name: joueur.Name,
+					points: this.game.Totals[this.game.Zones.at(-1)].getValue(
+						joueur.Id
+					),
+				};
+
+				ScoreDataService.create(data)
+					.then((response) => {
+						this.score.id = response.data.id;
+						console.log(this.score.data);
+					})
+					.catch((e) => {
+						console.log(e);
+					});
+			});
+		},
+	},
+};
 </script>
 
 <style scoped>
+.ExterieurRectangle {
+	width: 700px;
+	height: 500px;
+	background: rgb(0, 83, 44);
+	border: solid;
+	border-color: rgb(0, 31, 10);
+	border-radius: 4px;
+	border-width: 3px;
+	display: inline-block;
+}
 
-    .ExterieurRectangle {
-        width: 700px;
-        height: 500px;
-        background: rgb(0, 83, 44);
-        border: solid;
-        border-color: rgb(0, 31, 10);
-        border-radius: 4px;
-        border-width: 3px;
-        display: inline-block;
-    }
+.InterieurRectangle {
+	width: 600px;
+	height: 400px;
+	background: rgb(0, 168, 90);
+	margin-left: 50px;
+	margin-top: 50px;
+	border: solid;
+	border-color: rgb(0, 31, 10);
+	border-width: 3px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
-    .InterieurRectangle {
-        width: 600px;
-        height: 400px;
-        background: rgb(0, 168, 90);
-        margin-left: 50px;
-        margin-top: 50px;
-        border: solid;
-        border-color: rgb(0, 31, 10);
-        border-width: 3px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    span {
-        color: rgb(219 10 57);
-        font-family: 'Verdana';
-        font-size: large;
-    }
+span {
+	color: rgb(219 10 57);
+	font-family: "Verdana";
+	font-size: large;
+}
 </style>

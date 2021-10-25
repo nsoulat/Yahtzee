@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Jeu from '../views/Jeu.vue'
 import Regles from '../views/Regles.vue'
+import Scores from '../views/Scores.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
         path: '/regles',
         name: 'Regles',
         component: Regles
+    },
+    {
+        path: '/scores',
+        name: 'Scores',
+        component: Scores
     }
 ]
 
