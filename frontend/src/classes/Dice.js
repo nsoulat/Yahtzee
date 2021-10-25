@@ -58,7 +58,7 @@ export default class Dice {
         let result = false;
         for (let i = 0; i < 5; i++) {
             let dice = diceArray[i];
-            if (dice.Etat === "Libre" && dice.PositionCol === col && dice.PositionRow === row) {
+            if (dice.PositionCol === col && dice.PositionRow === row) {
                 result = true;
             }
         }
