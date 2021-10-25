@@ -6,9 +6,14 @@
             2 Joueurs
         </div>
 
-        <div id="espacement"></div>
+        <div class="espacement"></div>
         <router-link class="rectangle" :to="{ name : 'Regles' }">
             Règles
+        </router-link>
+
+        <div class="espacement"></div>
+        <router-link class="rectangle" :to="{ name : 'Scores' }">
+            Meilleurs scores
         </router-link>
 
     </div>
@@ -69,7 +74,7 @@
             color: #42b983;
         }
 
-    #espacement {
+    .espacement {
         height: 20px
     }
 
