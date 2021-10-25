@@ -1,3 +1,4 @@
+const { sequelize } = require("../models");
 const db = require("../models");
 const Score = db.scores;
 const Op = db.Sequelize.Op;
@@ -20,7 +21,7 @@ exports.create = (req, res) => {
 
 	// Sauvegarder Score
 	Score.create(score)
-		.then(date => {
+		.then(data => {
 			res.send(data);
 		})
 		.catch(err => {
@@ -36,7 +37,7 @@ exports.findAll = (req, res) => {
 	const name = req.query.name;
 	var condition = name ? { name: { [Op.iLike]: `%${name}` } } : null;
 
-	Score.findAll({ where: condition })
+	Score.findAll({order: [ ['points', 'DESC'], ], where: condition} )
 		.then(data => {
 			res.send(data);
 		})
@@ -67,9 +68,9 @@ exports.deleteAll = (req, res) => {
 
 // Rechercher les Scores supérieurs à une valeur
 exports.findAllSuperior = (req,res) => {
-	const value = req.query.score;
+	const value = req.params.value;
 
-	Score.findAll({ where: {score: {[Op.gte]: value } }})
+	Score.findAll({ where: { points: {[Op.gte]: value } } }, {order: ['points', 'DESC']} )
 		.then(data => {
 			res.send(data);
 		})
