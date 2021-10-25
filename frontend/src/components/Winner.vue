@@ -2,10 +2,10 @@
 	<div class="tapisJeu">
 		<div class="ExterieurRectangle">
 			<div class="InterieurRectangle">
-				<span
-					>{{ getWinner() }}
-					{{ hasMultipleWinners() ? "ont" : "a" }} gagné !</span
-				>
+				<span>
+					{{ getWinner() }}
+					{{ hasMultipleWinners() ? "ont" : "a" }} gagné !
+				</span>
 			</div>
 		</div>
 	</div>
