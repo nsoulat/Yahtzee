@@ -39,12 +39,12 @@
         width: 20%;
     }
 
-        .de {
-            width: 50px;
-            height: 50px;
-            margin: auto;
-            cursor: pointer;
-        }
+    .de {
+        width: 50px;
+        height: 50px;
+        margin: auto;
+        cursor: pointer;
+    }
 
         .de:hover {
             border: 2px solid blue;
