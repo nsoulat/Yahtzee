@@ -42,7 +42,7 @@ export default class Dice {
         while (count < colmax*rowmax && this.isOccupied(diceArray, col, row)) {
             col++
             if (col > colmax) { col = 1; row++ }
-            if (row > rowmax) { row = 0 }
+            if (row > rowmax) { row = 1 }
             count++;
         }
         this.PositionCol = col;

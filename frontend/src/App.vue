@@ -26,7 +26,7 @@
                 color: #42b983;
             }
 
-    html, body, #app {
+    #app {
         width: 100%;
         height: 100%;
     }
