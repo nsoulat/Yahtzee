@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <div class="Jeu">
         <div id="DiceZone" v-if="game.IsProgress">
             <tapisJeu class="TapisJeu" :diceArray="dice" />
@@ -8,9 +8,9 @@
         <div id="WinnerZone" v-else>
             <winner :game="game" />
         </div>
-        <tableau :game="game" :diceArray='dice' />
+        <tableau id="Tableau" :game="game" :diceArray='dice' />
         <modaleRegles :revele="revele" :toggleModale="toggleModale"></modaleRegles>
-        <div v-on:click="toggleModale" class="boutonRegles">?</div>
+        <div v-on:click="toggleModale" class="boutonRegles" v-if="!revele">?</div>
 
         <modaleChangementJoueur :afficheChangement="afficheChangement" :toggleModaleChangement="toggleModaleChangement" :game="game"></modaleChangementJoueur>
 
@@ -65,7 +65,7 @@
                 this.afficheChangement = !this.afficheChangement;
                 let count = 0;
                 const timer = setInterval(() => {
-                        if (count >= 11) {
+                    if (count >= 11) {
                         clearInterval(timer);
                         this.afficheChangement = false;
                     }
@@ -77,44 +77,50 @@
 </script>
 
 <style scoped>
+
     .jeu {
-        margin-right: 1%;
-        margin-top: 1%;
-        margin-left: 1%
+        width: 100%;
+        height: 100%;
+        margin: 10%;
     }
 
     #DiceZone {
         float: left;
-        display: inline-grid;
-        grid-template-columns: [col1] auto [col2] auto [col3];
-        grid-template-rows: [row1] auto [row2] auto [row3];
-        width: 50%;
+        display: grid;
+        grid-template-columns: 2fr min(5%, 10px) 1fr;
+        grid-template-rows: 1fr 10px 80px;
+        grid-template-areas:
+            "tapis tapis tapis"
+            " . . ."
+            "stock . lancer";
+        width: min(max(50%, 400px), 700px);
+        height: 600px;
+        margin-right: 30px;
     }
 
     .TapisJeu {
-        grid-column-start: col1;
-        grid-column-end: col3;
-        grid-row-start: row1;
-        grid-row-end: row2;
+        grid-area: tapis;
+        width: 100%;
+        height: 100%;
     }
 
     .gauche {
-        grid-column-start: col1;
-        grid-column-end: col2;
-        grid-row-start: row2;
-        grid-row-end: row3;
-        margin-top: 1%;
+        grid-area: stock;
         width: 100%;
+        height: 100%;
     }
 
     .droite {
-        grid-column-start: col2;
-        grid-column-end: col3;
-        grid-row-start: row2;
-        grid-row-end: row3;
-        margin-left: min(1%, 10px);
-        float: left;
-        margin-top: 1%;
+        grid-area: lancer;
+        width: 100%;
+        height: 100%;
+    }
+
+    #Tableau {
+        float: right;
+        margin-right: 5%;
+        width: min(max(40%, 300px), 700px);
+        height: 100%;
     }
 
     #WinnerZone {

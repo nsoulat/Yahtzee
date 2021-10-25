@@ -46,21 +46,23 @@
 
     .rectangle {
         width: 230px;
-        height: 110px;
+        height: 80px;
         background-color: white;
         border: solid;
         border-color: black;
-        border-width: 11px;
-        /* display: block; */
+        border-width: 10px;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 5px;
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 20px;
+        cursor: pointer;
     }
 
     a {
-        font-size: 30px;
+        font-size: 20px;
         color: #000000;
         text-decoration: none;
     }
@@ -71,10 +73,5 @@
 
     #espacement {
         height: 20px
-    }
-
-    #bouton2Joueurs {
-        font-size: 30px;
-        cursor: pointer;
     }
 </style>

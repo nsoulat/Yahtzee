@@ -2,7 +2,7 @@
     <div class="tableau">
         <table>
             <tr v-for="figure in game.Figures" :key="figure.Id" :class="figure.Type">
-                <td :class='colonneInfo'> {{ figure.Text }} </td>
+                <td :class="colonneInfo"> {{ figure.Text }} </td>
                 <td v-for="(point, playerId) in figure.Point" :key="playerId" :class="[figure.isClickable(playerId, game.CurrentPlayer.Id) ? 'clickable' : '', 'colonneJoueur']" @click="handler(figure, playerId)">
                     <span v-if="figure.Id === 0">
                         {{ game.Joueurs[playerId].Name }}
@@ -51,6 +51,7 @@
                 this.diceArray.map(dice => {
                     dice.devientLibre();
                     dice.rollDice();
+                    dice.setRandomPosition(this.diceArray);
                 });
             }
         }
@@ -60,6 +61,10 @@
 
 <style scoped>
 
+    .tableau {
+        width: 100%;
+    }
+
     table {
         text-align: center;
         border-collapse: collapse;
@@ -68,30 +73,24 @@
         float: right;
         text-decoration: none;
         cursor: default;
+        width: 100%;
     }
 
     td {
         border: 1px solid black;
-    }
-
-    .nomJoueur {
-        height: 33px;
-    }
-
-    .figure {
-        width: 230px;
-        height: 33px;
         vertical-align: middle;
     }
 
-    .colonneJoueur {
-        width: 250px;
-        vertical-align: middle;
+    .figure, .nomJoueur, .sousTotal, .total {
+        height: 33px;
     }
 
     .colonneInfo {
-        width: 250px;
-        vertical-align: middle;
+        width: min(max(10%, 50px), 250px);
+    }
+
+    .colonneJoueur {
+        width: 33%
     }
 
     .clickable {
@@ -100,18 +99,16 @@
         cursor: pointer;
     }
 
-    .clickable:hover {
-        background: #e1e1e1;
-        box-shadow: 0 0 0 2px #d0d0d0;
-    }
+        .clickable:hover {
+            background: #e1e1e1;
+            box-shadow: 0 0 0 2px #d0d0d0;
+        }
 
     .sousTotal {
-        height: 33px;
         background-color: rgba(40,40,40,0.4);
     }
 
     .total {
-        height: 33px;
         background-color: rgba(40,40,40,0.6);
     }
 

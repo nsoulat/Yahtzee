@@ -5,12 +5,14 @@
             <div class="overlay" v-on:click="toggleModaleNomJoueurs"></div>
             <div class="modaleNomJoueurs">
                 <p>Quel sont les noms des Joueurs ?</p>
-                <form>
+                <div class="form">
                     <label for="Joueur1">Nom du Joueur 1</label>
-                    <input v-model="nomJoueur1" placeholder="Marc" id="Joueur1">
+                    <input v-model="nomJoueur1" placeholder="Lucie" id="Joueur1">
+                </div>
+                <div class="form">
                     <label for="Joueur2">Nom du Joueur 2</label>
                     <input v-model="nomJoueur2" placeholder="Paul" id="Joueur2">
-                </form>
+                </div>
                 <div class="espace"></div>
                 <router-link class="rectangle" :to="{ name : 'Jeu', query: { name1: nomJoueur1, name2: nomJoueur2 } }">
                     Jouer
@@ -55,9 +57,9 @@
         background: #f2ceb1;
         color: #333;
         position: fixed;
-        top: 40%;
-        left: 2%;
-        right: 2%;
+        top: 15%;
+        left: 10%;
+        right: 10%;
         min-height: 200px;
         max-height: 600px;
         overflow-y: auto;
@@ -83,11 +85,15 @@
 
     p {
         text-align: center;
-        font-size: 30px;
+        font-size: 20px;
+    }
+
+    .form {
+        text-align: center;
     }
 
     label {
-        font-size: 30px;
+        font-size: 20px;
         padding-left: 3%;
     }
 
@@ -97,6 +103,6 @@
         box-sizing: border-box;
         border: 2px solid black;
         border-radius: 4px;
-        font-size: 30px;
+        font-size: 20px;
     }
 </style>
