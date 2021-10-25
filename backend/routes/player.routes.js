@@ -3,19 +3,19 @@ module.exports = app => {
 
     var router = require("express").Router();
 
-    // Créer un nouveau Player
+    // CrÃ©er un nouveau Player
     router.post("/", players.create);
 
-    // Récupère tous les Players
+    // RÃ©cupÃ¨re tous les Players
     router.get("/", players.findAll);
 
-    // Récupère tous les Players premium
+    // RÃ©cupÃ¨re tous les Players premium
     router.get("/premium", players.findAllPremium);
 
-    // Récupère un certain Player
+    // RÃ©cupÃ¨re un certain Player
     router.get("/:id", players.findOne);
 
-    // Met à jour un certain Player
+    // Met Ã  jour un certain Player
     router.put("/:id", players.update);
 
     // Supprime un player d'un certain Id
