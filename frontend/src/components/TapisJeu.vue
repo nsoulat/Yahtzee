@@ -50,6 +50,12 @@
         cursor: pointer;
     }
 
+    .dice:hover {
+        border: 2px solid blue;
+        border-radius: 20%;
+        margin-bottom: -4px; /* to compensate the 2px border */
+    }
+
     #dice0 {
         margin-left: 10%;
     }
