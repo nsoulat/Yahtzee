@@ -49,7 +49,7 @@
         top: 10%;
         left: 2%;
         right: 2%;
-        max-height: 600px;
+        max-height: min(600px, 80%);
         overflow-y: auto;
         border: 2px solid black;
         box-shadow: 10px 5px 5px rgba(0,0,0,0.2);
