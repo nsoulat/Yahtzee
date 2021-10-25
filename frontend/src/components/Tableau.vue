@@ -70,7 +70,7 @@
         cursor: default;
     }
 
-    table, td {
+    td {
         border: 1px solid black;
     }
 
@@ -95,9 +95,14 @@
     }
 
     .clickable {
-        background-color: rgb(40,40,40,0.1);
+        background-color: rgb(40, 40, 40, 0.1);
         color: rgb(72,0,255);
         cursor: pointer;
+    }
+
+    .clickable:hover {
+        background: #e1e1e1;
+        box-shadow: 0 0 0 2px #d0d0d0;
     }
 
     .sousTotal {
