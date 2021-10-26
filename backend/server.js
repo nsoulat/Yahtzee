@@ -11,8 +11,9 @@ const PORT = serverConfig.PORT;
 const db = require("./models");
 db.sequelize.sync();
 
-app.use(cors()) // Cross-Origin Resource Sharing
 app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     date = new Date(Date.now())
     console.log('Time:', date.toLocaleDateString(), date.toLocaleTimeString(), "; url :", req.url);
     next(); // sans cette ligne on ne pourra pas poursuivre.
