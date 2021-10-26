@@ -15,6 +15,10 @@
                 <td class="score"> {{ toDate(score.createdAt) }} </td>
             </tr>
         </table>
+        <div class="espacement"></div>
+        <router-link class="rectangle" :to="{ name : 'Home' }">
+            Menu
+        </router-link>
     </div>
 </template>
 
@@ -67,10 +71,10 @@
         border-collapse: collapse;
         border: solid 4px #000;
         background-color: rgba(255,255,255,0.45);
-        float: right;
         text-decoration: none;
         cursor: default;
-        width: 100%;
+        width: 90%;
+        margin: auto;
     }
 
     tr {
@@ -85,5 +89,9 @@
 
     .title {
         background-color: rgba(40,40,40,0.4);
+    }
+
+    .espacement {
+        height: 50px;
     }
 </style>
