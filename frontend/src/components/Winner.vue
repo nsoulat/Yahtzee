@@ -58,7 +58,6 @@ export default {
 				ScoreDataService.create(data)
 					.then((response) => {
 						this.score.id = response.data.id;
-						console.log(this.score.data);
 					})
 					.catch((e) => {
 						console.log(e);
