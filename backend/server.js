@@ -1,6 +1,6 @@
-const path = require('path')
 const express = require("express");
 var history = require('connect-history-api-fallback');
+var cors = require('cors')
 
 const app = express()
 
@@ -11,6 +11,7 @@ const PORT = serverConfig.PORT;
 const db = require("./models");
 db.sequelize.sync();
 
+app.use(cors()) // Cross-Origin Resource Sharing
 app.use(function (req, res, next) {
     date = new Date(Date.now())
     console.log('Time:', date.toLocaleDateString(), date.toLocaleTimeString(), "; url :", req.url);
