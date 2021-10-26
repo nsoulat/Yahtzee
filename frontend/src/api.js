@@ -3,6 +3,7 @@ var config = null;
 try {
     config = require("../../backend/config/config.json");
 } catch (ex) {
+    console.log(`WARN: environnement instable -- config.json non trouvé`);
     config = require("../../backend/config/config.model.json");
 }
 const serverConfig = config.SERVER;
