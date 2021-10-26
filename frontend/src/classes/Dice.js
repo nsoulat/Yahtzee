@@ -2,7 +2,7 @@ export default class Dice {
     constructor() {
         this.Value = null;
         this.Etat = "Libre";   //Etat pour savoir si le dé est à relancer ou non
-        this.ValueTemporary = null;
+        this.ValueTemporary = 1;
         this.PositionCol = null;
         this.PositionRow = null;
         this.rollDice();
