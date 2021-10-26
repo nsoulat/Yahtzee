@@ -7,7 +7,7 @@ const sequelize = new Sequelize(
     dbConfig.password,
     {
         dialect: dbConfig.dialect,
-        operatorsAliases: false, // problem ?
+        operatorsAliases: 0
     });
 
 const db = {};
