@@ -1,5 +1,11 @@
 import axios from "axios";
-const serverConfig = require("../../backend/config/config.json").SERVER;
+var config = null;
+try {
+    config = require("../../backend/config/config.json");
+} catch (ex) {
+    config = require("../../backend/config/config.model.json");
+}
+const serverConfig = config.SERVER;
 const HOSTNAME = serverConfig.HOST;
 const PORT = serverConfig.PORT;
 
