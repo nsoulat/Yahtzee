@@ -152,6 +152,6 @@
     }
 
     .rectangle {
-        margin-left: none;
+        margin-left: 0px;
     }
 </style>
