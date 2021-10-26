@@ -6,12 +6,12 @@
             <div class="droite"><boutonTourDeJeu :game="game" :diceArray="dice" /></div>
         </div>
         <div id="WinnerZone" v-else>
-            <winner :game="game" />
-            <router-link class="rectangle" :to="{ name : 'Jeu', query: { name1: game.Joueurs[1].Name, name2: game.Joueurs[0].Name } }">
-                Rejouer
-            </router-link>
-            <router-link class="rectangle" :to="{ name : 'Home' }">
+            <winner class="TapisJeu" :game="game" />
+            <router-link class="menu rectangle" :to="{ name : 'Home' }">
                 Menu
+            </router-link>
+            <router-link class="rejouer rectangle" :to="{ name : 'Jeu', query: { name1: game.Joueurs[1].Name, name2: game.Joueurs[0].Name } }">
+                Rejouer
             </router-link>
         </div>
         <tableau id="Tableau" :game="game" :diceArray='dice' />
@@ -135,6 +135,28 @@
 
     #WinnerZone {
         float: left;
+        display: grid;
+        grid-template-columns: 1fr min(10%, 40px) 1fr;
+        grid-template-rows: 1fr 10px 80px;
+        grid-template-areas:
+            "tapis tapis tapis"
+            " . . ."
+            "menu . rejouer";
+        width: min(max(50%, 400px), 700px);
+        height: 600px;
+        margin-right: 30px;
+    }
+
+    .menu {
+        grid-area: menu;
+        width: 100%;
+        height: 100%;
+    }
+
+    .rejouer {
+        grid-area: rejouer;
+        width: 100%;
+        height: 100%;
     }
 
     .boutonRegles {
