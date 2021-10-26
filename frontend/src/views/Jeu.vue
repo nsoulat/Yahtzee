@@ -7,6 +7,12 @@
         </div>
         <div id="WinnerZone" v-else>
             <winner :game="game" />
+            <router-link class="rectangle" :to="{ name : 'Jeu', query: { name1: game.Joueurs[1].Name, name2: game.Joueurs[0].Name } }">
+                Rejouer
+            </router-link>
+            <router-link class="rectangle" :to="{ name : 'Home' }">
+                Menu
+            </router-link>
         </div>
         <tableau id="Tableau" :game="game" :diceArray='dice' />
         <modaleRegles :revele="revele" :toggleModale="toggleModale"></modaleRegles>
@@ -53,9 +59,13 @@
             return {
                 revele: false,
                 afficheChangement: false,
-                game: new Game(2, nameArray),
+                game: null,
+                nameArray: nameArray,
                 dice: diceArray
             };
+        },
+        created() {
+            this.game = new Game(2, this.nameArray);
         },
         methods: {
             toggleModale: function () {
