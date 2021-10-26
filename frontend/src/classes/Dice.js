@@ -2,7 +2,7 @@ export default class Dice {
     constructor() {
         this.Value = null;
         this.Etat = "Libre";   //Etat pour savoir si le dé est à relancer ou non
-        this.ValueTemporary = null;
+        this.ValueTemporary = 1;
         this.PositionCol = null;
         this.PositionRow = null;
         this.rollDice();
@@ -45,9 +45,9 @@ export default class Dice {
             if (row > rowmax) { row = 1 }
             count++;
         }
+        if (count >= colmax * rowmax) { console.log(`ERR: impossible de trouver une place libre pour le dé après ${count} essais`); }
         this.PositionCol = col;
         this.PositionRow = row;
-        console.log(`col ${this.PositionCol}, row ${this.PositionRow}, after ${count} essai`);
     }
 
     getRandomInt(min, max) { // [min, max]

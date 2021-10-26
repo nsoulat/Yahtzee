@@ -22,12 +22,10 @@
     export default {
         props: ['game', 'diceArray'],
         created() {
-            console.log(this.diceArray)
         },
         methods: {
             handler: function (figure, playerId) {
                 if (figure.isClickable(playerId, this.game.CurrentPlayer.Id)) {
-                    console.log(`${playerId} clicked on the row ${figure.Id}`);
                     this.game.play(figure.Id, playerId, this.diceArray);
                     this.game.endTurn();
                     this.resetDice();

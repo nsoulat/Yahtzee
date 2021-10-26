@@ -40,13 +40,11 @@ export default class FigureRow {
     }
 
     getComputedValue(playerId, des) {
-        //console.log(des);
         if (this.isValueFixed(playerId)) {
             return this.Point[playerId].value;
         }
         else {
             let value = compute(des, this.Calcul, this.DetailledCalcul, this.DefaultValue);
-            //console.log(`${this.Calcul}, ${this.DetailledCalcul}, ${value}`);
             return value;
         }
     }
@@ -96,7 +94,6 @@ export default class FigureRow {
 
     setAutomaticValue(playerId, total) {
         let value = computeAutomatic(this.DetailledCalcul, this.DefaultValue, total);
-        console.log(`Value set to ${value}`)
         this.setValue(playerId, value);
     }
 }

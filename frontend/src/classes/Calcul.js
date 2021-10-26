@@ -71,7 +71,6 @@ function computeIfAutomatic(detailledCalculWithoutIf, comparison) {
     let actions = detailledCalculWithoutIf.split(" ");
     switch (actions[0]) {
         case 'sup':
-            console.log(`${comparison} > ${parseInt(actions[1], 10)}`)
             return comparison > parseInt(actions[1], 10);
         default:
             console.log(`if automatic non géré: ${actions[0]}`)
