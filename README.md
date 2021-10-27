@@ -1,10 +1,12 @@
 # Yahtzee
 
-Online free yahtzee by two students
+Online free yahtzee by two students ([Mickaël Rolland](https://github.com/mickaelrolland) and [Nathanaël Soulat](https://github.com/nsoulat)).
 
 ## How to play ?
 
-> The game is not released yet 
+Just go to [http://node.fenouil.ovh1.ec-m.fr](http://node.fenouil.ovh1.ec-m.fr) or [http://node.girofle.ovh1.ec-m.fr](http://node.girofle.ovh1.ec-m.fr) and play!
+
+> The game is in French but if you know about Yahtzee it will be okay.
 
 ## How to setup the project ?
 
@@ -27,7 +29,7 @@ Online free yahtzee by two students
 >npm config delete script-shell
 >```
 
-Clone the project then run 
+Clone the project then run
 
 ```bash
 npm run update
@@ -40,13 +42,14 @@ Then in the `backend/config` folder open the file `config.model.json` and replac
 
 ### Compiles and hot-reloads for development
 
-For the backend
+For the backend (to launch the backend server)
 
 ```bash
 npm run start
 ```
 
-For the frontend
+For the frontend (to launch the frontend server)
+
 ```bash
 npm run dev
 ```
@@ -57,8 +60,8 @@ npm run dev
 npm run build
 ```
 
-This will build the frontend and update the frontend/dist folder which is used by the backend server for static files.
-After the frontend build, you can start the backend server with 
+This will build the frontend and update the `frontend/dist` folder which is used by the backend server for static files.
+After the frontend build, you can start the backend server with:
 
 ```bash
 npm run start
@@ -73,7 +76,7 @@ npm run lint
 
 ### Release managment
 
-This command line will be effective only for linux servers.
+This command line will be effective only for linux servers (like the `ovh1.ec-m.fr` that we use).
 Make sure that you have the rights to execute the scripts.
 You can set those rights with this command:
 
@@ -101,4 +104,4 @@ cd backend
 
 ## Figma model
 
-https://www.figma.com/file/QQ74Ou5yLQ9YuvqtcWaJh8/Yahtzee
+[Figma Yahtzee](https://www.figma.com/file/QQ74Ou5yLQ9YuvqtcWaJh8/Yahtzee)
