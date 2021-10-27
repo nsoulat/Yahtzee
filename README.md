@@ -74,7 +74,7 @@ cd frontend
 npm run lint
 ```
 
-### Release managment
+### Release management
 
 This command line will be effective only for linux servers (like the `ovh1.ec-m.fr` that we use).
 Make sure that you have the rights to execute the scripts.
