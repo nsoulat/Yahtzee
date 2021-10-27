@@ -8,7 +8,7 @@
         <p>
             Quand vous êtes satisfaits de vos lancers, ou si vous avez déjà effectué les 3 possibles, il faut choisir une des 13 cases disponibles sur la grille, dans n’importe quel ordre. Cependant, à chaque fin de tour, vous êtes obligés d’en remplir une.<br>
             Chaque case correspond à un marquage de point différent. <br>
-            La partie supérieure est le total, pour chaque valeur de 1 à 6, des faces de dès correspondant à cette valeur.<br>
+            La partie supérieure est le total, pour chaque valeur de 1 à 6, des faces de dés correspondant à cette valeur.<br>
             Si vous totalisez plus de 62 points pour la partie supérieure, vous obtenez un bonus de 35 points.<br>
             La partie inférieure comporte différentes figures :
             <ul>
