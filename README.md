@@ -4,7 +4,7 @@ Online free yahtzee by two students ([Mickaël Rolland](https://github.com/micka
 
 ## How to play ?
 
-Just go to [http://node.fenouil.ovh1.ec-m.fr](http://node.fenouil.ovh1.ec-m.fr) or [http://node.girofle.ovh1.ec-m.fr](http://node.girofle.ovh1.ec-m.fr) and play!
+Just go to [http://node.fenouil.ovh1.ec-m.fr](http://node.fenouil.ovh1.ec-m.fr) or [http://node.girofle.ovh1.ec-m.fr](http://node.girofle.ovh1.ec-m.fr) and play ;) !
 
 > The game is in French but if you know about Yahtzee it will be okay.
 
