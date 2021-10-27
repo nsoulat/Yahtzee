@@ -15,7 +15,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.players = require("./player.model.js")(sequelize, Sequelize);
 db.scores = require("./score.model.js")(sequelize, Sequelize);
 
 module.exports = db;

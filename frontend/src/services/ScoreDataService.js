@@ -1,5 +1,3 @@
-// import api from "../api"
-
 async function fetchScores(url, method, data) {
 	let options =
 	{

@@ -58,9 +58,9 @@ export default class Game {
     updateTotal(playerId) {
         // in the figureList.json, the zone must be well order
         this.Zones.forEach(zone => {
+            this.updateAutomaticInZone(playerId, zone);
             let count = this.getTotalForZone(playerId, zone);
             this.Totals[zone].setValue(playerId, count);
-            this.updateAutomaticInZone(playerId, zone);
         });
     }
 
