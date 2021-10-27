@@ -48,7 +48,6 @@ app.get("/api/hello", (req, res) => {
     });
 });
 
-require("./routes/player.routes")(app);
 require("./routes/score.routes")(app);
 
 app.use(function (req, res) {
