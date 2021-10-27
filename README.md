@@ -61,7 +61,7 @@ npm run build
 ```
 
 This will build the frontend and update the `frontend/dist` folder which is used by the backend server for static files.
-After the frontend build, you can start the backend server with:
+After the frontend build, you can start the backend server with :
 
 ```bash
 npm run start
