@@ -18,12 +18,7 @@ export default {
 	props: ["game"],
 	data() {
 		return {
-			winners: [{ Name: "Personne" }],
-            score: {
-				id: null,
-				name: "",
-				points: null,
-			}
+			winners: [{ Name: "Personne" }]
 		};
 	},
 	created() {
@@ -57,7 +52,7 @@ export default {
 
 				ScoreDataService.create(data)
 					.then((response) => {
-						this.score.id = response.data.id;
+						console.log(response);
 					})
 					.catch((e) => {
 						console.log(e);

@@ -7,7 +7,7 @@
     "start": "./scripts/start.sh",
     "dev": "./scripts/dev.sh",
     "build": "./scripts/build.sh",
-    "install" : "./scripts/install.sh",
+    "install": "./scripts/install.sh",
     "update": "./scripts/update.sh",
     "fix": "./scripts/fix.sh",
     "prod": "./scripts/prod.sh"
