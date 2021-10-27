@@ -44,7 +44,6 @@
             retrieveScores() {
                 ScoreDataService.getAll()
                     .then(response => {
-                        console.log(response);
                         this.scores = response;
                     })
                     .catch(e => {
