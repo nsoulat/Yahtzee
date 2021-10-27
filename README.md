@@ -78,7 +78,7 @@ npm run lint
 
 This command line will be effective only for linux servers (like the `ovh1.ec-m.fr` that we use).
 Make sure that you have the rights to execute the scripts.
-You can set those rights with this command:
+You can set those rights with this command :
 
 ```bash
 chmod -R u+x scripts/
