@@ -87,9 +87,11 @@ export default {
     }
 
     span {
-        color: rgb(219 10 57);
+        color: black;
         font-family: "Verdana";
         font-size: large;
         margin: auto;
+		background-color: white;
+		border: solid 2px black;
     }
 </style>
