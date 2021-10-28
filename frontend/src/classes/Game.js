@@ -67,7 +67,8 @@ export default class Game {
     updateAutomaticInZone(playerId, zone) {
         this.Figures.forEach(figure => {
             if (figure.isAutomatic() && figure.Zone === zone) {
-                figure.setAutomaticValue(playerId, this.Totals[zone].getValue(playerId));
+                let count = this.getTotalForZone(playerId, zone);
+                figure.setAutomaticValue(playerId, count);
             }
         });
     }
